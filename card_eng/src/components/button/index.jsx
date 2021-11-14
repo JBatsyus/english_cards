@@ -1,6 +1,4 @@
- import './Button.scss'
+import './Button.scss'
 
-
-const Button =()=>{
-    
-}
+const Button = () => {}
+export default Button
