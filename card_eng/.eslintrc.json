@@ -1,28 +1,35 @@
 {
     "env": {
-        "browser": true,
-        "es2021": true
+      "browser": true,
+      "es2021": true
     },
     "extends": [
-        "eslint:recommended",
-        "plugin:react/recommended",
-        "plugin:react/jsx-runtime",
-        "plugin:react-hooks/recommended",
-        "plugin:jsx-a11y/recommended",
-        "plugin:import/recommended",
-        "prettier"
+      "eslint:recommended",
+      "plugin:react/recommended",
+      "plugin:react/jsx-runtime",
+      "plugin:react-hooks/recommended",
+      "prettier"
     ],
     "parserOptions": {
-        "ecmaFeatures": {
-            "jsx": true
-        },
-        "ecmaVersion": 12,
-        "sourceType": "module"
+      "ecmaFeatures": {
+        "jsx": true
+      },
+      "ecmaVersion": 12,
+      "sourceType": "module"
     },
-    "plugins": [
-        "react"
-    ],
-    "rules": { "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
+    "plugins": ["react"],
+    "ignorePatterns": ["webpack.config.js"],
+    "rules": {
+      "no-console": "off",
+      "no-var": "error",
+      "semi": "error",
+      "no-unused-vars": "warn",
+      "no-multi-spaces": "error",
+      "space-in-parens": "error",
+      "no-multiple-empty-lines": "error",
+      "prefer-const": "error",
+      "no-use-before-define": "error",
+      "react/prop-types": 0,
+      "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
     }
-    
-}
+  }

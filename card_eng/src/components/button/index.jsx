@@ -1,4 +1,4 @@
-import './Button.scss'
+import "./Button.scss";
 
-const Button = () => {}
-export default Button
+const Button = () => {};
+export default Button;
