@@ -1,10 +1,7 @@
-// import './main.scss'
+import "./main.scss";
 
-// const Main = () => {
-//     return (
+const Main = () => {
+  return <main className="main"></main>;
+};
 
-//     );
-
-//   };
-
-//   export default Main;
+export default Main;

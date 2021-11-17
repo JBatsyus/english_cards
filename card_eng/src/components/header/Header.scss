@@ -1,0 +1,25 @@
+@import "../../assets/styles/fonts.scss";
+@import "../../assets/styles/color.scss";
+
+.header {
+  height: 70px;
+  background-color: $color_blue;
+  flex: 0 0 auto;
+
+  .wrapper-header {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin: 0 auto;
+    padding: 10px;
+  }
+  .logo_header {
+    width: 50px;
+  }
+  .header-text {
+    font-family: ArchitectsDaughter-Regular;
+    font-size: 35px;
+    font-weight: bolder;
+    color: $color_yandex;
+  }
+}

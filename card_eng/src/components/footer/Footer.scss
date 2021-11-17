@@ -1,0 +1,32 @@
+@import "../../assets/styles/fonts.scss";
+@import "../../assets/styles/color.scss";
+
+.footer {
+  height: 100px;
+  background-color: $color_blue;
+  flex: 0 0 auto;
+
+  .wrapper-footer {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin: 0 auto;
+    padding-top: 30px;
+  }
+  .icons_footer {
+    display: flex;
+    justify-content: space-between;
+    width: 130px;
+  }
+  .icon {
+    width: 40px;
+    border-radius: 10px;
+  }
+  .text_footer {
+    display: flex;
+    align-self: center;
+    font-family: ArchitectsDaughter-Regular;
+    font-size: 25px;
+    color: $color_yandex;
+  }
+}
