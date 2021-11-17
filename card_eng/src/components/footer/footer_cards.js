@@ -1,9 +1,13 @@
+import git from "../../assets/images/gith.png";
+import fb from "../../assets/images/fb.png";
+import inst from "../../assets/images/insta.png";
+
 export const icons = [
   {
-    src: "../../assets/images/gith.png",
+    src: git,
     alt: "гитхаб",
     href: "#",
   },
-  { src: "../../assets/images/fb.png", alt: "фейсбук", href: "#" },
-  { src: "../../assets/images/insta.png", alt: "инста", href: "#" },
+  { src: fb, alt: "фейсбук", href: "#" },
+  { src: inst, alt: "инста", href: "#" },
 ];
