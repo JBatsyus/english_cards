@@ -1,1 +1,34 @@
+@import "../../assets/styles/fonts.scss";
+@import "../../assets/styles/color.scss";
+@import "../../assets/styles/mixins.scss";
 
+.table_box {
+  @include position_word();
+}
+
+.table {
+  width: 70%;
+  margin-bottom: 20px;
+  border: 15px solid $light_gray;
+  border-top: 5px solid $light_gray;
+  border-collapse: collapse;
+  & th {
+    font-family: "Dosis-Regular", sans-serif;
+    font-size: 25px;
+    font-weight: bold;
+    color: $quartz_gray;
+    padding: 10px;
+    background: $light_gray;
+    border: none;
+    border-bottom: 2px solid $light_blue;
+  }
+  & td {
+    font-family: "Dosis-Regular", sans-serif;
+    font-size: 20px;
+    padding: 5px;
+    border: none;
+    border-bottom: 2px solid $light_blue;
+  }
+}
+.table_title {
+}

@@ -1,4 +1,5 @@
 import Card from "../card/index";
+import Table from "../table/index";
 import { words } from "../card/cardDate";
 import "./main.scss";
 
@@ -13,6 +14,7 @@ const Main = () => {
           translation={word.russian}
         />
       ))}
+      <Table></Table>
     </main>
   );
 };

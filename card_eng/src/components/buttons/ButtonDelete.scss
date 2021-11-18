@@ -1,0 +1,22 @@
+@import "../../assets/styles/color.scss";
+@import "../../assets/styles/mixins.scss";
+
+.button_delete {
+  @include buttons_table();
+  background-color: $red_McDonalds;
+
+  &:active {
+    background-color: $color_yandex;
+    box-shadow: 0 0 5px rgb(150, 150, 150);
+  }
+
+  .delete {
+    color: #fff;
+    font-size: 17px;
+    font-weight: bolder;
+
+    &:active {
+      color: $red_McDonalds;
+    }
+  }
+}

@@ -1,0 +1,20 @@
+@import "../../assets/styles/color.scss";
+@import "../../assets/styles/mixins.scss";
+
+.button_edit {
+  @include buttons_table();
+  background-color: $color_yandex;
+
+  &:active {
+    background-color: $herbal_green;
+    box-shadow: 0 0 5px rgb(150, 150, 150);
+  }
+}
+.edit {
+  color: $color_blue;
+  font-size: 17px;
+  font-weight: bolder;
+  &:active {
+    color: #fff;
+  }
+}

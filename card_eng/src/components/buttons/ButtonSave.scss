@@ -1,0 +1,21 @@
+@import "../../assets/styles/color.scss";
+@import "../../assets/styles/mixins.scss";
+
+.button_save {
+  @include buttons_table();
+  background-color: $herbal_green;
+
+  &:active {
+    background-color: $color_blue;
+    box-shadow: 0 0 5px rgb(150, 150, 150);
+  }
+
+  .save {
+    color: #fff;
+    font-size: 17px;
+    font-weight: bolder;
+    &:active {
+      color: #fff;
+    }
+  }
+}
