@@ -1,0 +1,34 @@
+@import "../../assets/styles/fonts.scss";
+@import "../../assets/styles/color.scss";
+@import "../../assets/styles/mixins.scss";
+
+.card_body {
+  @include position_word();
+  width: 400px;
+  height: 250px;
+  background-color: $light_blue;
+  border-radius: 10px;
+  margin: 60px auto;
+  box-shadow: 0 0 10px rgba(184, 179, 179, 0.87);
+
+  &:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(184, 179, 179, 0.87);
+    background-color: $light_yandex;
+  }
+
+  .card_word {
+    font-family: "DMSans-Regular", sans-serif;
+    font-size: 45px;
+    padding-bottom: 10px;
+  }
+  .card_transcription {
+    font-family: "DMSans-Regular", sans-serif;
+    padding-bottom: 5px;
+    font-size: 25px;
+  }
+  .card_translation {
+    font-family: "DMSans-Regular", sans-serif;
+    font-size: 20px;
+  }
+}
