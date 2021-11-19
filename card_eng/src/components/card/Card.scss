@@ -20,11 +20,12 @@
   .card_word {
     font-family: "DMSans-Regular", sans-serif;
     font-size: 45px;
-    padding-bottom: 10px;
+    padding-bottom: 5px;
   }
   .card_transcription {
     font-family: "DMSans-Regular", sans-serif;
     padding-bottom: 20px;
+    color: $quartz_gray;
     font-size: 25px;
   }
   .card_translation {

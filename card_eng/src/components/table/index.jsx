@@ -21,8 +21,8 @@ const Table = () => {
             <td>[ ˈbʌtəflaɪ ]</td>
             <td>бабочка</td>
             <td>
-              <ButtonSave />
               <ButtonEdit />
+              <ButtonSave />
               <ButtonDelete />
             </td>
           </tr>
