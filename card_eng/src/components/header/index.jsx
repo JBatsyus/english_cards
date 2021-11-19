@@ -7,10 +7,9 @@ const Header = () => {
       <div className="wrapper-header">
         <img className="logo_header" src={logo3} alt={"logo"} />
         <div className="header-text">Learn english every day!</div>
-        <div className="wrapper-btn">
-          <button>Log In</button>
-          <button>Sign Up</button>
-        </div>
+        {/* <div className="wrapper-menu">
+          здесь будет меню
+        </div> */}
       </div>
     </header>
   );

@@ -18,8 +18,17 @@
   }
   .header-text {
     font-family: ArchitectsDaughter-Regular;
-    font-size: 35px;
+    font-size: 40px;
     font-weight: bolder;
-    color: $color_yandex;
+    // color: $color_yandex;
+    background-image: linear-gradient(
+      90deg,
+      #c94a4a,
+      #f78154,
+      #f2c14e,
+      #5fad56
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 }
