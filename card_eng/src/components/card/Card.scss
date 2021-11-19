@@ -24,11 +24,26 @@
   }
   .card_transcription {
     font-family: "DMSans-Regular", sans-serif;
-    padding-bottom: 5px;
+    padding-bottom: 20px;
     font-size: 25px;
   }
   .card_translation {
     font-family: "DMSans-Regular", sans-serif;
     font-size: 20px;
+    font-weight: bolder;
+    // text-transform: uppercase;
+  }
+  .card_answer_btn {
+    width: 100px;
+    border-radius: 5px;
+    margin: 5px;
+    cursor: pointer;
+    font-family: "DMSans-Regular", sans-serif;
+    font-weight: bolder;
+    font-size: 17px;
+    color: $quartz_gray;
+    padding: 5px;
+    margin-top: 20px;
+    border-color: rgba(238, 232, 232, 0.842);
   }
 }

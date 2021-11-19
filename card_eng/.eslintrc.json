@@ -30,6 +30,8 @@
       "prefer-const": "error",
       "no-use-before-define": "error",
       "react/prop-types": 0,
+      "react/jsx-uses-vars": "error",
+      "react/jsx-uses-react": "error",
       "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
     }
   }
