@@ -10,7 +10,7 @@
   align-items: center;
   justify-content: center;
 }
-
+//  стили для кнопок в таблице
 @mixin buttons_table {
   width: 60px;
   height: 40px;
@@ -21,4 +21,11 @@
   &:hover {
     transform: scale(1.1);
   }
+}
+
+// стили шрифта для ячеек таблицы
+@mixin font_style_cell {
+  font-family: "Dosis-Regular", sans-serif;
+  font-size: 25px;
+  padding: 5px;
 }

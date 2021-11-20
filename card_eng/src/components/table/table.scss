@@ -3,18 +3,19 @@
 @import "../../assets/styles/mixins.scss";
 
 .table_box {
+  margin-top: 20px;
   @include position_word();
 }
 
 .table {
-  width: 70%;
+  width: 80%;
   margin-bottom: 20px;
   border: 15px solid $light_gray;
   border-top: 5px solid $light_gray;
   border-collapse: collapse;
   & th {
     font-family: "Dosis-Regular", sans-serif;
-    font-size: 25px;
+    font-size: 30px;
     font-weight: bold;
     color: $quartz_gray;
     padding: 10px;
@@ -23,12 +24,17 @@
     border-bottom: 2px solid $light_blue;
   }
   & td {
-    font-family: "Dosis-Regular", sans-serif;
-    font-size: 20px;
-    padding: 5px;
+    @include font_style_cell();
+    color: $quartz_gray;
     border: none;
     border-bottom: 2px solid $light_blue;
+    .input_editMode {
+      @include font_style_cell();
+      outline: none;
+      background: transparent;
+      border: none;
+      text-align: center;
+      color: $herbal_green;
+    }
   }
 }
-// .table_title {
-// }
