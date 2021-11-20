@@ -1,4 +1,4 @@
-export const words = [
+export const table_words = [
   {
     id: "10847",
     word: "butterfly",

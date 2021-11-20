@@ -1,7 +1,5 @@
 import "./table.scss";
-import ButtonDelete from "../buttons/ButtonDelete";
-import ButtonEdit from "../buttons/ButtonEdit";
-import ButtonSave from "../buttons/ButtonSave";
+import TableWords from "../table/TableWords";
 
 const Table = () => {
   return (
@@ -16,17 +14,7 @@ const Table = () => {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>butterfly</td>
-            <td>[ ˈbʌtəflaɪ ]</td>
-            <td>бабочка</td>
-            <td>
-              <ButtonEdit />
-              <ButtonSave />
-              <ButtonDelete />
-            </td>
-          </tr>
-          ...
+          <TableWords />
         </tbody>
       </table>
     </div>

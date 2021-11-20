@@ -11,14 +11,15 @@ const Main = () => {
     <main className="main">
       <div className="main_box">
         <ButtonBack />
-        {words.map(word => (
-          <Card
-            key={word.id}
-            word={word.word}
-            transcription={word.transcription}
-            translation={word.russian}
-          />
-        ))}
+        {/* вывод только одной карточки */}
+        {/* {words.map(word => ( */}
+        <Card
+          key={words[0].id}
+          word={words[0].word}
+          transcription={words[0].transcription}
+          translation={words[0].russian}
+        />
+        {/* ))} */}
         <ButtonNext />
       </div>
 
