@@ -48,21 +48,21 @@ const TableWords = () => {
         )}
       </td>
       <td>
-        <div className="buttons">
-          {!editMode ? (
-            <ButtonEdit
-              className="btn_editMode"
-              onClick={() => handleEditChange(true)}
-            />
-          ) : null}
-          {editMode ? (
-            <ButtonSave
-              className="btn_editMode"
-              onClick={() => handleEditChange(false)}
-            />
-          ) : null}
-          <ButtonDelete />
-        </div>
+        {/* <div className="buttons"> */}
+        {!editMode ? (
+          <ButtonEdit
+            className="btn_editMode"
+            onClick={() => handleEditChange(true)}
+          />
+        ) : null}
+        {editMode ? (
+          <ButtonSave
+            className="btn_editMode"
+            onClick={() => handleEditChange(false)}
+          />
+        ) : null}
+        <ButtonDelete />
+        {/* </div> */}
       </td>
     </tr>
   ));
