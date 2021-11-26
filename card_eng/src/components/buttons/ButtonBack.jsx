@@ -1,8 +1,8 @@
 import "./ButtonBack.scss";
 
-const ButtonBack = () => {
+const ButtonBack = props => {
   return (
-    <button className="button_back">
+    <button className="button_back" onClick={props.onClick}>
       <span className="back">&#10094;</span>
     </button>
   );

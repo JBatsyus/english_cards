@@ -2,9 +2,15 @@ import { useState } from "react";
 import "./Card.scss";
 
 const Card = props => {
-  const [pressed, setPressed] = useState(false);
+  // Card.defaultProps = {
+  //   word: "",
+  //   transcription: "",
+  //   translation: "",
+  // };
 
   const { word, transcription, translation } = props;
+
+  const [pressed, setPressed] = useState(false);
 
   const handleChange = () => {
     setPressed(!pressed);
