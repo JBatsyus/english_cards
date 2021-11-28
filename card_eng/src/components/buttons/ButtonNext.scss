@@ -12,3 +12,6 @@
     color: $color_blue;
   }
 }
+.button_next:disabled {
+  display: none;
+}
