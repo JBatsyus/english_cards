@@ -1,0 +1,18 @@
+@import "../../assets/styles/fonts.scss";
+@import "../../assets/styles/color.scss";
+
+.CardContainer {
+  width: 40%;
+  margin: auto;
+}
+.Card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cardCounter {
+  font-family: "DMSans-Regular", sans-serif;
+  font-size: 35px;
+  color: $color_blue;
+  padding-bottom: 20px;
+}

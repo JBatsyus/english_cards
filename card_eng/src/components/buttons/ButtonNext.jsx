@@ -1,8 +1,8 @@
 import "./ButtonNext.scss";
 
-const ButtonNext = () => {
+const ButtonNext = props => {
   return (
-    <button className="button_next">
+    <button className="button_next" onClick={props.onClick}>
       <span className="next">&#10095;</span>
     </button>
   );
