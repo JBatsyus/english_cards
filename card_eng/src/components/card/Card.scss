@@ -9,13 +9,13 @@
   background-color: $light_blue;
   border-radius: 10px;
   margin: 60px auto;
-  box-shadow: 0 0 10px rgba(184, 179, 179, 0.87);
+  box-shadow: 0 0 20px rgba(184, 179, 179, 0.87);
 
-  &:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 20px rgba(184, 179, 179, 0.87);
-    background-color: $light_yandex;
-  }
+  // &:hover {
+  //   transform: scale(1.1);
+  //   box-shadow: 0 0 20px rgba(184, 179, 179, 0.87);
+  //   // background-color: $light_yandex;
+  // }
 
   .card_word {
     font-family: "DMSans-Regular", sans-serif;
@@ -46,5 +46,9 @@
     padding: 5px;
     margin-top: 20px;
     border-color: rgba(238, 232, 232, 0.842);
+    &:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 20px rgba(184, 179, 179, 0.87);
+    }
   }
 }
