@@ -5,8 +5,8 @@ import "./main.scss";
 const Main = () => {
   return (
     <main className="main">
-      <CardSlider></CardSlider>
-      <Table></Table>
+      <CardSlider />
+      <Table />
     </main>
   );
 };
