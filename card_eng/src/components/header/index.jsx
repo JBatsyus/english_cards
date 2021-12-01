@@ -4,12 +4,15 @@ import logo3 from "../../assets/images/logo3.png";
 const Header = () => {
   return (
     <header className="header">
-      <div className="wrapper-header">
-        <img className="logo_header" src={logo3} alt={"logo"} />
-        <div className="header-text">Learn english every day!</div>
-        {/* <div className="wrapper-menu">
-          здесь будет меню
-        </div> */}
+      <div className="wrapper__header">
+        <nav className="header__nav">
+          <img className="logo__header" src={logo3} alt={"logo"} />
+          <ul className="nav__list">
+            <li className="nav__item">Home</li>
+            <li className="nav__item">Cards</li>
+          </ul>
+        </nav>
+        <div className="header__text">Learn english every day!</div>
       </div>
     </header>
   );
