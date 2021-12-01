@@ -12,11 +12,14 @@ function App() {
       <div className="App">
         <Header />
         <Switch>
-          <Route path="/home">
+          <Route exact path="/home">
             <Table />
           </Route>
-          <Route path="/cards">
+          <Route exact path="/cards">
             <CardSlider />
+          </Route>
+          <Route exact path="/">
+            <Table />
           </Route>
           <Route>
             <Error />

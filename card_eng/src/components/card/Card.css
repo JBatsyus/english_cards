@@ -1,0 +1,71 @@
+@font-face {
+  font-family: "ArchitectsDaughter-Regular";
+  src: url("../fonts/Architects_Daughter/ArchitectsDaughter-Regular.ttf");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Dosis-Regular";
+  src: url("../fonts/Dosis/Dosis-Regular.ttf");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "DMSans-Regular";
+  src: url("../fonts/DM_Sans/DMSans-Regular.ttf");
+  font-weight: 400;
+  font-style: normal;
+}
+.card_body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 400px;
+  height: 250px;
+  background-color: #1f9491;
+  border-radius: 10px;
+  margin: 60px auto;
+  box-shadow: 0 0 20px rgba(184, 179, 179, 0.87);
+}
+.card_body .card_word {
+  font-family: "DMSans-Regular", sans-serif;
+  font-size: 45px;
+  padding-bottom: 5px;
+  color: #ffcc00;
+}
+.card_body .card_transcription {
+  font-family: "DMSans-Regular", sans-serif;
+  padding-bottom: 20px;
+  color: #fff;
+  font-size: 25px;
+}
+.card_body .card_translation {
+  font-family: "DMSans-Regular", sans-serif;
+  font-size: 20px;
+  font-weight: bolder;
+}
+.card_body .card_answer_btn {
+  width: 100px;
+  border-radius: 5px;
+  margin: 5px;
+  cursor: pointer;
+  font-family: "DMSans-Regular", sans-serif;
+  font-weight: bolder;
+  font-size: 17px;
+  color: #6c6960;
+  padding: 5px;
+  margin-top: 20px;
+  border-color: rgba(238, 232, 232, 0.842);
+}
+.card_body .card_answer_btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(184, 179, 179, 0.87);
+}
+
+.hidden_btn {
+  font-family: "DMSans-Regular", sans-serif;
+  font-size: 25px;
+  color: #ffcc00;
+  cursor: pointer;
+}/*# sourceMappingURL=Card.css.map */
