@@ -17,7 +17,8 @@ const CardSlider = () => {
   };
 
   const handleClickButtonBack = () => {
-    const oldIdx = (selectedCard - 1) % words.length;
+    // переключение карточек в обратном направлении
+    const oldIdx = (selectedCard - 1 + words.length) % words.length;
     if (oldIdx >= 0) {
       setSelectedCard(oldIdx);
     }
