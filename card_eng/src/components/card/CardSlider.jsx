@@ -9,13 +9,15 @@ const CardSlider = () => {
   const [selectedCard, setSelectedCard] = useState(0);
 
   const handleClickButtonNext = () => {
-    const newIdx = selectedCard + 1;
+    // бесконечная карусель
+    const newIdx = (selectedCard + 1) % words.length;
     if (newIdx < words.length) {
       setSelectedCard(newIdx);
     }
   };
+
   const handleClickButtonBack = () => {
-    const oldIdx = selectedCard - 1;
+    const oldIdx = (selectedCard - 1) % words.length;
     if (oldIdx >= 0) {
       setSelectedCard(oldIdx);
     }
@@ -26,7 +28,7 @@ const CardSlider = () => {
       <div className="Card">
         <ButtonBack
           onClick={handleClickButtonBack}
-          disabled={selectedCard === 0}
+          // disabled={selectedCard === 0}
         />
         <Card
           key={words[selectedCard].id}
@@ -36,7 +38,7 @@ const CardSlider = () => {
         />
         <ButtonNext
           onClick={handleClickButtonNext}
-          disabled={selectedCard === words.length - 1}
+          // disabled={selectedCard === words.length - 1}
         />
       </div>
       <div className="cardCounter">

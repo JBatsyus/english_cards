@@ -5,7 +5,7 @@ const ButtonBack = props => {
     <button
       className="button_back"
       onClick={props.onClick}
-      disabled={props.disabled}
+      // disabled={props.disabled}
     >
       <span className="back">&#10094;</span>
     </button>
