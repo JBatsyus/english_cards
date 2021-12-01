@@ -20,7 +20,12 @@ const Card = props => {
       <div className="card_word">{word}</div>
       <div className="card_transcription">{transcription}</div>
       {pressed ? (
-        <div className="card_translation">{translation}</div>
+        <div className="card_translation">
+          {translation}
+          <div className="hidden_btn" title="change" onClick={handleChange}>
+            ✔
+          </div>
+        </div>
       ) : (
         <button className="card_answer_btn" onClick={handleChange}>
           check
