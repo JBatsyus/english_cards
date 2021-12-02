@@ -1,9 +1,9 @@
 import "./App.css";
-import Header from "./components/header/index.jsx";
-import Table from "./components/table/index.jsx";
-import Footer from "./components/footer/index.jsx";
+import Header from "./components/header/";
+import Table from "./components/table";
+import Footer from "./components/footer";
 import CardSlider from "./components/card/CardSlider.jsx";
-import Error from "./components/error/index.jsx";
+import Error from "./components/error";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
