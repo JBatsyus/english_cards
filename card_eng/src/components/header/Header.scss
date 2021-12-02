@@ -2,11 +2,12 @@
 @import "../../assets/styles/color.scss";
 
 .header {
-  height: 80px;
+  height: 65px;
   background-color: $color_blue;
   flex: 0 0 auto;
   display: flex;
   justify-content: space-between;
+  // фиксация хедера
   position: fixed;
   width: 100%;
   z-index: 999999;
