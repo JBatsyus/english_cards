@@ -12,5 +12,5 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100%;
-  background-color: rgba(218, 218, 218, 0.781);
+  background-color: #e9f0f3;
 }

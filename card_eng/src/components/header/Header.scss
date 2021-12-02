@@ -7,6 +7,9 @@
   flex: 0 0 auto;
   display: flex;
   justify-content: space-between;
+  position: fixed;
+  width: 100%;
+  z-index: 999999;
 
   .wrapper__header {
     align-items: center;
