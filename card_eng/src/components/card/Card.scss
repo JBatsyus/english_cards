@@ -27,6 +27,9 @@
     font-family: "DMSans-Regular", sans-serif;
     font-size: 20px;
     font-weight: bolder;
+    color: #fff;
+    display: flex;
+    align-items: center;
   }
   .card_answer_btn {
     width: 100px;
@@ -36,13 +39,12 @@
     font-family: "DMSans-Regular", sans-serif;
     font-weight: bolder;
     font-size: 17px;
-    color: $quartz_gray;
+    color: $twilight_orange;
     padding: 5px;
     margin-top: 20px;
     border-color: rgba(238, 232, 232, 0.842);
     &:hover {
-      transform: scale(1.1);
-      // box-shadow: 0 0 20px rgba(184, 179, 179, 0.87);
+      transform: scale(1.4);
     }
   }
 }
@@ -51,4 +53,5 @@
   font-size: 25px;
   color: $color_yandex;
   cursor: pointer;
+  margin-left: 5px;
 }
