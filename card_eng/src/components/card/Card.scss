@@ -6,33 +6,30 @@
   @include position_word();
   width: 400px;
   height: 250px;
-  background-color: $light_blue;
+  background-color: $color_blue;
   border-radius: 10px;
   margin: 60px auto;
   box-shadow: 0 0 20px rgba(184, 179, 179, 0.87);
-
-  // &:hover {
-  //   transform: scale(1.1);
-  //   box-shadow: 0 0 20px rgba(184, 179, 179, 0.87);
-  //   // background-color: $light_yandex;
-  // }
 
   .card_word {
     font-family: "DMSans-Regular", sans-serif;
     font-size: 45px;
     padding-bottom: 5px;
+    color: $color_yandex;
   }
   .card_transcription {
     font-family: "DMSans-Regular", sans-serif;
     padding-bottom: 20px;
-    color: $quartz_gray;
+    color: #fff;
     font-size: 25px;
   }
   .card_translation {
     font-family: "DMSans-Regular", sans-serif;
     font-size: 20px;
     font-weight: bolder;
-    // text-transform: uppercase;
+    color: #fff;
+    display: flex;
+    align-items: center;
   }
   .card_answer_btn {
     width: 100px;
@@ -42,13 +39,12 @@
     font-family: "DMSans-Regular", sans-serif;
     font-weight: bolder;
     font-size: 17px;
-    color: $quartz_gray;
+    color: $twilight_orange;
     padding: 5px;
     margin-top: 20px;
     border-color: rgba(238, 232, 232, 0.842);
     &:hover {
-      transform: scale(1.1);
-      box-shadow: 0 0 20px rgba(184, 179, 179, 0.87);
+      transform: scale(1.4);
     }
   }
 }
@@ -57,4 +53,5 @@
   font-size: 25px;
   color: $color_yandex;
   cursor: pointer;
+  margin-left: 5px;
 }

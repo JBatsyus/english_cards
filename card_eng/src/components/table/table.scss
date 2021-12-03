@@ -3,7 +3,7 @@
 @import "../../assets/styles/mixins.scss";
 
 .table_box {
-  margin-top: 20px;
+  margin-top: 100px;
   @include position_word();
 }
 
@@ -17,7 +17,7 @@
     font-family: "Dosis-Regular", sans-serif;
     font-size: 30px;
     font-weight: bold;
-    color: $quartz_gray;
+    color: $twilight_orange;
     padding: 10px;
     background: $light_gray;
     border: none;
