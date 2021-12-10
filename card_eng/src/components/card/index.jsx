@@ -29,7 +29,7 @@ const Card = props => {
         <div className="card_translation">
           {translation}
           <div className="hidden_btn" title="change" onClick={handleChange}>
-            ✔
+            &#9055;
           </div>
         </div>
       ) : (

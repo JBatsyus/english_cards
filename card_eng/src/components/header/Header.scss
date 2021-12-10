@@ -2,33 +2,51 @@
 @import "../../assets/styles/color.scss";
 
 .header {
-  height: 70px;
+  height: 65px;
   background-color: $color_blue;
   flex: 0 0 auto;
+  display: flex;
+  justify-content: space-between;
+  // фиксация хедера
+  position: fixed;
+  width: 100%;
+  z-index: 999999;
 
-  .wrapper-header {
+  .wrapper__header {
+    align-items: center;
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
     width: 90%;
     margin: 0 auto;
     padding: 10px;
   }
-  .logo_header {
+
+  .nav__item {
+    font-family: "ArchitectsDaughter-Regular", sans-serif;
+    font-size: 30px;
+    color: $color_yandex;
+    text-transform: uppercase;
+    margin-right: 3vw;
+  }
+
+  .nav__list {
+    display: flex;
+    list-style-type: none;
+    cursor: pointer;
+  }
+
+  .logo__header {
     width: 50px;
   }
-  .header-text {
-    font-family: ArchitectsDaughter-Regular;
-    font-size: 40px;
-    font-weight: bolder;
-    // color: $color_yandex;
-    background-image: linear-gradient(
-      90deg,
-      #c94a4a,
-      #f78154,
-      #f2c14e,
-      #5fad56
-    );
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
+}
+
+.header__text {
+  font-family: "ArchitectsDaughter-Regular", sans-serif;
+  font-size: 40px;
+  font-weight: bolder;
+  // color: $color_yandex;
+  background-image: linear-gradient(90deg, #c94a4a, #f78154, #f2c14e, #5fad56);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }

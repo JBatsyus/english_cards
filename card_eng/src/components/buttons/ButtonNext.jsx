@@ -5,7 +5,7 @@ const ButtonNext = props => {
     <button
       className="button_next"
       onClick={props.onClick}
-      disabled={props.disabled}
+      // disabled={props.disabled}
     >
       <span className="next">&#10095;</span>
     </button>

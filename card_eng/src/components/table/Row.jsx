@@ -14,7 +14,7 @@ export const Row = props => {
         <input
           className="input_editMode"
           type="text"
-          value={props.word}
+          defaultValue={props.word}
           onChange={() => null}
           disabled={!editMode}
         />
@@ -23,7 +23,7 @@ export const Row = props => {
         <input
           className="input_editMode"
           type="text"
-          value={props.transcription}
+          defaultValue={props.transcription}
           onChange={() => null}
           disabled={!editMode}
         />
@@ -32,7 +32,7 @@ export const Row = props => {
         <input
           className="input_editMode"
           type="text"
-          value={props.russian}
+          defaultValue={props.russian}
           onChange={() => null}
           disabled={!editMode}
         />
