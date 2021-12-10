@@ -20,10 +20,9 @@ const Card = props => {
 
   const handleChange = () => {
     setPressed(!pressed);
-    {
-      if (!pressed) {
-        props.increment();
-      }
+
+    if (!pressed) {
+      props.increment();
     }
   };
   return (
