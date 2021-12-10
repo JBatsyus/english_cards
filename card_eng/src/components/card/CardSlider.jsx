@@ -1,12 +1,13 @@
 import Card from "./index";
 import "./CardSlider.scss";
 import { words } from "./cardDate";
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import ButtonBack from "../buttons/ButtonBack";
 import ButtonNext from "../buttons/ButtonNext";
 
 const CardSlider = () => {
   const [selectedCard, setSelectedCard] = useState(0);
+  const [count, setCount] = useState(0);
 
   const handleClickButtonNext = () => {
     // бесконечная карусель
@@ -23,9 +24,15 @@ const CardSlider = () => {
       setSelectedCard(oldIdx);
     }
   };
+  // подсчет карточек
+  const increment = useCallback(() => setCount(count + 1), [count]);
 
   return (
     <div className="CardContainer">
+      <div className="title">
+        You learned {count} words!
+        <br /> Congratulations!
+      </div>
       <div className="Card">
         <ButtonBack
           onClick={handleClickButtonBack}
@@ -36,6 +43,7 @@ const CardSlider = () => {
           word={words[selectedCard].word}
           transcription={words[selectedCard].transcription}
           translation={words[selectedCard].russian}
+          increment={increment}
         />
         <ButtonNext
           onClick={handleClickButtonNext}
