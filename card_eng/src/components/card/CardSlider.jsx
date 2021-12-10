@@ -30,7 +30,7 @@ const CardSlider = () => {
   return (
     <div className="CardContainer">
       <div className="title">
-        You learned {count} words!
+        You learned <span className="titleCount">{count}</span> words!
         <br /> Congratulations!
       </div>
       <div className="Card">

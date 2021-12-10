@@ -22,4 +22,9 @@
   font-family: "DMSans-Regular", sans-serif;
   font-size: 30px;
   color: $color_blue;
+  .titleCount {
+    color: $color_yandex;
+    padding: auto;
+    display: inline;
+  }
 }
