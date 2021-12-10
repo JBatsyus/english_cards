@@ -20,6 +20,11 @@ const Card = props => {
 
   const handleChange = () => {
     setPressed(!pressed);
+    {
+      if (!pressed) {
+        props.increment();
+      }
+    }
   };
   return (
     <div className="card_body">
