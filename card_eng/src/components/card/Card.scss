@@ -43,14 +43,11 @@
     padding: 5px;
     margin-top: 20px;
     border-color: rgba(238, 232, 232, 0.842);
-    &:hover {
-      transform: scale(1.1);
-      // box-shadow: 0 0 20px rgba(184, 179, 179, 0.87);
-    }
+
     &:focus {
       outline: none;
-      box-shadow: 0 0 5px $color_yandex;
-      transform: scale(1.4);
+      // transform: scale(1.1);
+      border: 5px outset $color_yandex;
     }
   }
 }
