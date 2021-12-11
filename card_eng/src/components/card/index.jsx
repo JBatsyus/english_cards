@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import "./Card.scss";
 
 const Card = props => {
@@ -12,8 +12,17 @@ const Card = props => {
 
   const [pressed, setPressed] = useState(false);
 
+  const ref = useRef();
+
+  useEffect(() => {
+    ref.current.focus();
+  }, []);
+
   const handleChange = () => {
     setPressed(!pressed);
+    if (!pressed) {
+      props.increment();
+    }
   };
   return (
     <div className="card_body">
@@ -27,7 +36,7 @@ const Card = props => {
           </div>
         </div>
       ) : (
-        <button className="card_answer_btn" onClick={handleChange}>
+        <button ref={ref} onClick={handleChange} className="card_answer_btn">
           check
         </button>
       )}
