@@ -108,6 +108,13 @@ export const Row = props => {
           <ButtonSave
             className="btn_editMode"
             onClick={() => handleEditChange(false)}
+            disabled={
+              data.word === "" ||
+              data.transcription === "" ||
+              data.russian === ""
+                ? true
+                : false
+            }
           />
         ) : null}
         <ButtonDelete />

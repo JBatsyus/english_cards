@@ -18,4 +18,8 @@
       color: #fff;
     }
   }
+  &:disabled {
+    transform: none;
+    background-color: rgb(150, 150, 150);
+  }
 }
