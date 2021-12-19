@@ -36,8 +36,18 @@
       text-align: center;
       color: $herbal_green;
     }
+    .inputError {
+      outline: none;
+      background: transparent;
+      border-bottom: 1px solid $red_McDonalds;
+      text-align: center;
+    }
     .error {
-      color: $twilight_orange;
+      color: $red_McDonalds;
+      font-family: "Dosis-Regular", sans-serif;
+      font-size: 15px;
+      padding: 5px;
+      text-align: center;
     }
   }
 }

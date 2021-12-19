@@ -7,13 +7,20 @@ import { useState } from "react";
 export const Row = props => {
   // register — это функция, которую нужно подключить к каждому из полей ввода в качестве ссылки.
   // Функция register будет принимать значение, которое пользователь ввел в каждое поле, и проверять его. register также передаст каждое значение в функцию, которая будет вызвана при отправке формы
-  const { register, errors } = useForm({
-    mode: "onBlur",
+  const {
+    register,
+    formState: { errors },
+  } = useForm({
+    mode: "onChange",
   });
-  // необходимо дописать кнопку и обернуть ее, но как
 
   // состояние, отражающее изменения внутри инпутов
   const [editMode, setEditMode] = useState(false);
+  const [data, setData] = useState({
+    word: props.word,
+    transcription: props.transcription,
+    russian: props.russian,
+  });
 
   const handleEditChange = isEdit => setEditMode(isEdit);
 
@@ -21,57 +28,74 @@ export const Row = props => {
     <tr key={props.id}>
       <td>
         <input
-          className="input_editMode"
+          className={`input_editMode ${!data.word.length ? "inputError" : ""}`}
           type="text"
           name="word"
-          ref={register({
-            required: true,
-            pattern: /^[A-Za-z]+$/i,
-          })}
-          placeholder="word"
-          value={props.word}
+          value={data.word}
           onChange={() => null}
           disabled={!editMode}
+          {...register("word", {
+            required: true,
+            pattern: /^[A-Za-z]+$/i,
+            onChange: event => {
+              setData({ ...data, word: event.target.value });
+            },
+          })}
         />
-        {errors.word && (
-          <span className="error">Поле обязательно к заполнению.</span>
-        )}
+
+        {
+          <div className="error">
+            {errors.word?.type === "required" && "Заполните, пожалуйста, поле"}
+            {errors.word?.type === "pattern" &&
+              "Только буквы латинского алфавита"}
+          </div>
+        }
       </td>
       <td>
         <input
-          className="input_editMode"
+          className={`input_editMode ${
+            !data.transcription.length ? "inputError" : ""
+          }`}
           type="text"
           name="transcription"
-          ref={register({
-            required: true,
-            pattern: /^[A-Za-z]+$/i,
-          })}
-          placeholder="transcription"
-          value={props.transcription}
+          value={data.transcription}
           onChange={() => null}
           disabled={!editMode}
+          {...register("transcription", {
+            required: true,
+            onChange: event => {
+              setData({ ...data, transcription: event.target.value });
+            },
+          })}
         />
-        {errors.transcription && (
-          <span className="error">Поле обязательно к заполнению.</span>
-        )}
+        <div className="error">
+          {errors.transcription?.type === "required" &&
+            "Заполните, пожалуйста, поле"}
+        </div>
       </td>
       <td>
         <input
-          className="input_editMode"
+          className={`input_editMode ${
+            !data.russian.length ? "inputError" : ""
+          }`}
           type="text"
           name="russian"
-          ref={register({
-            required: true,
-            pattern: /[а-яё]+/i,
-          })}
-          placeholder="russian"
-          value={props.russian}
+          value={data.russian}
           onChange={() => null}
           disabled={!editMode}
+          {...register("russian", {
+            required: true,
+            pattern: /[а-яё]+/i,
+            onChange: event => {
+              setData({ ...data, russian: event.target.value });
+            },
+          })}
         />
-        {errors.russian && (
-          <span className="error">Поле обязательно к заполнению.</span>
-        )}
+        <div className="error">
+          {errors.russian?.type === "required" && "Заполните, пожалуйста, поле"}
+          {errors.russian?.type === "pattern" &&
+            "Только буквы русского алфавита"}
+        </div>
       </td>
       <td>
         {!editMode ? (
