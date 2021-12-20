@@ -21,5 +21,6 @@
   &:disabled {
     transform: none;
     background-color: rgb(150, 150, 150);
+    cursor: not-allowed;
   }
 }

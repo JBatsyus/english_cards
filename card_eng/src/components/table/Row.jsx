@@ -21,15 +21,17 @@ export const Row = props => {
     transcription: props.transcription,
     russian: props.russian,
   });
-  const validWords =
+  const notValidWords =
     data.word === "" || data.transcription === "" || data.russian === "";
 
   const handleEditChange = isEdit => {
-    if (!validWords) {
+    if (!notValidWords) {
       console.log(data);
     }
     setEditMode(isEdit);
   };
+  const handleChange = event =>
+    setData({ ...data, [event.target.name]: event.target.value });
 
   return (
     <tr key={props.id}>
@@ -39,14 +41,11 @@ export const Row = props => {
           type="text"
           name="word"
           value={data.word}
-          onChange={() => null}
           disabled={!editMode}
           {...register("word", {
             required: true,
             pattern: /^[A-Za-z]+$/i,
-            onChange: event => {
-              setData({ ...data, word: event.target.value });
-            },
+            onChange: handleChange,
           })}
         />
 
@@ -66,13 +65,10 @@ export const Row = props => {
           type="text"
           name="transcription"
           value={data.transcription}
-          onChange={() => null}
           disabled={!editMode}
           {...register("transcription", {
             required: true,
-            onChange: event => {
-              setData({ ...data, transcription: event.target.value });
-            },
+            onChange: handleChange,
           })}
         />
         <div className="error">
@@ -88,14 +84,11 @@ export const Row = props => {
           type="text"
           name="russian"
           value={data.russian}
-          onChange={() => null}
           disabled={!editMode}
           {...register("russian", {
             required: true,
-            pattern: /[а-яё]+/i,
-            onChange: event => {
-              setData({ ...data, russian: event.target.value });
-            },
+            pattern: /^[\u0400-\u04FF]+$/i,
+            onChange: handleChange,
           })}
         />
         <div className="error">
@@ -110,14 +103,13 @@ export const Row = props => {
             className="btn_editMode"
             onClick={() => handleEditChange(true)}
           />
-        ) : null}
-        {editMode ? (
+        ) : (
           <ButtonSave
             className="btn_editMode"
             onClick={() => handleEditChange(false)}
-            disabled={validWords}
+            disabled={Object.keys(errors).length}
           />
-        ) : null}
+        )}
         <ButtonDelete />
       </td>
     </tr>
