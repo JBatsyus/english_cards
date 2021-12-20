@@ -21,8 +21,15 @@ export const Row = props => {
     transcription: props.transcription,
     russian: props.russian,
   });
+  const validWords =
+    data.word === "" || data.transcription === "" || data.russian === "";
 
-  const handleEditChange = isEdit => setEditMode(isEdit);
+  const handleEditChange = isEdit => {
+    if (!validWords) {
+      console.log(data);
+    }
+    setEditMode(isEdit);
+  };
 
   return (
     <tr key={props.id}>
@@ -108,13 +115,7 @@ export const Row = props => {
           <ButtonSave
             className="btn_editMode"
             onClick={() => handleEditChange(false)}
-            disabled={
-              data.word === "" ||
-              data.transcription === "" ||
-              data.russian === ""
-                ? true
-                : false
-            }
+            disabled={validWords}
           />
         ) : null}
         <ButtonDelete />
