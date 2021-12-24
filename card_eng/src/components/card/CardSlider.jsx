@@ -40,7 +40,7 @@ const CardSlider = () => {
         />
         <Card
           key={words[selectedCard].id}
-          word={words[selectedCard].word}
+          english={words[selectedCard].english}
           transcription={words[selectedCard].transcription}
           translation={words[selectedCard].russian}
           increment={increment}

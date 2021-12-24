@@ -2,13 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import "./Card.scss";
 
 const Card = props => {
-  // Card.defaultProps = {
-  //   word: "",
-  //   transcription: "",
-  //   translation: "",
-  // };
-
-  const { word, transcription, translation } = props;
+  const { english, transcription, translation } = props;
 
   const [pressed, setPressed] = useState(false);
 
@@ -26,7 +20,7 @@ const Card = props => {
   };
   return (
     <div className="card_body">
-      <div className="card_word">{word}</div>
+      <div className="card_word">{english}</div>
       <div className="card_transcription">{transcription}</div>
       {pressed ? (
         <div className="card_translation">
