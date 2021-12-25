@@ -33,6 +33,55 @@ export const Row = props => {
   const handleChange = event =>
     setData({ ...data, [event.target.name]: event.target.value });
 
+  // методы добавления, изменения и удаления слов
+  const addNewWord = () => {
+    fetch("/api/words/add", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json;charset=utf-8",
+      },
+      body: JSON.stringify(data),
+      mode: "cors",
+    })
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+      })
+      .catch(error => console.log(error));
+  };
+
+  const updateWord = () => {
+    fetch(`/api/words/${data.id}/update`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json;charset=utf-8",
+      },
+      body: JSON.stringify(data),
+      mode: "cors",
+    })
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+      })
+      .catch(error => console.log(error));
+  };
+
+  const deleteWord = () => {
+    fetch(`/api/words/${data.id}/delete `, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json;charset=utf-8",
+      },
+      body: JSON.stringify(data),
+      mode: "cors",
+    })
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+      })
+      .catch(error => console.log(error));
+  };
+
   return (
     <tr key={props.id}>
       <td>
@@ -112,7 +161,7 @@ export const Row = props => {
             disabled={Object.keys(errors).length}
           />
         )}
-        <ButtonDelete />
+        <ButtonDelete onClick={deleteWord} />
       </td>
     </tr>
   );

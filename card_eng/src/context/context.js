@@ -14,6 +14,7 @@ const DataContextProvider = props => {
   useEffect(() => {
     setIsLoading(true);
     fetch("/api/words")
+      // В первом then происходит получение объекта Response. Данный объект хранит в себе состояние нашего запроса
       .then(response => {
         if (response.ok) {
           return response.json();
@@ -23,7 +24,11 @@ const DataContextProvider = props => {
       })
       .then(data => {
         setData(data);
-        setTimeout(() => setIsLoading(false), 5000);
+        setTimeout(() => setIsLoading(false), 3000);
+      })
+      // Для обработки ошибок в Promise вместе с then используется метод catch
+      .catch(error => {
+        console.log(error);
       });
   }, []);
 
