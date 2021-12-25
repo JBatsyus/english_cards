@@ -175,7 +175,7 @@ export const Row = props => {
             className="btn_editMode"
             onClick={() => {
               handleEditChange(true);
-              updateWord;
+              updateWord();
             }}
           />
         ) : (
@@ -183,12 +183,12 @@ export const Row = props => {
             className="btn_editMode"
             onClick={() => {
               handleEditChange(false);
-              addNewWord;
+              addNewWord();
             }}
             disabled={Object.keys(errors).length}
           />
         )}
-        <ButtonDelete onClick={deleteWord} />
+        <ButtonDelete onClick={deleteWord()} />
       </td>
     </tr>
   );
