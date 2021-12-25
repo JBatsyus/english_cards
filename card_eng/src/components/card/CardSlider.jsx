@@ -10,19 +10,19 @@ import ButtonNext from "../buttons/ButtonNext";
 const CardSlider = () => {
   const [selectedCard, setSelectedCard] = useState(0);
   const [count, setCount] = useState(0);
-  const { data } = useContext(DataContext);
+  const { dataWords } = useContext(DataContext);
 
   const handleClickButtonNext = () => {
     // бесконечная карусель
-    const newIdx = (selectedCard + 1) % data.length;
-    if (newIdx < data.length) {
+    const newIdx = (selectedCard + 1) % dataWords.length;
+    if (newIdx < dataWords.length) {
       setSelectedCard(newIdx);
     }
   };
 
   const handleClickButtonBack = () => {
     // переключение карточек в обратном направлении
-    const oldIdx = (selectedCard - 1 + data.length) % data.length;
+    const oldIdx = (selectedCard - 1 + dataWords.length) % dataWords.length;
     if (oldIdx >= 0) {
       setSelectedCard(oldIdx);
     }
@@ -39,16 +39,16 @@ const CardSlider = () => {
       <div className="Card">
         <ButtonBack onClick={handleClickButtonBack} />
         <Card
-          key={data[selectedCard]?.id}
-          english={data[selectedCard]?.english}
-          transcription={data[selectedCard]?.transcription}
-          translation={data[selectedCard]?.russian}
+          key={dataWords[selectedCard]?.id}
+          english={dataWords[selectedCard]?.english}
+          transcription={dataWords[selectedCard]?.transcription}
+          translation={dataWords[selectedCard]?.russian}
           increment={increment}
         />
         <ButtonNext onClick={handleClickButtonNext} />
       </div>
       <div className="cardCounter">
-        {selectedCard + 1} / {data.length}
+        {selectedCard + 1} / {dataWords.length}
       </div>
     </div>
   );

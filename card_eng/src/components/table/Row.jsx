@@ -3,6 +3,8 @@ import ButtonEdit from "../buttons/ButtonEdit";
 import ButtonSave from "../buttons/ButtonSave";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
+import { useContext } from "react";
+import { DataContext } from "../../context/context";
 
 export const Row = props => {
   // register — это функция, которую нужно подключить к каждому из полей ввода в качестве ссылки.
@@ -13,6 +15,7 @@ export const Row = props => {
   } = useForm({
     mode: "onChange",
   });
+  const { dataWords } = useContext(DataContext);
 
   // состояние, отражающее изменения внутри инпутов
   const [editMode, setEditMode] = useState(false);
@@ -40,7 +43,7 @@ export const Row = props => {
       headers: {
         "Content-Type": "application/json;charset=utf-8",
       },
-      body: JSON.stringify(data),
+      body: JSON.stringify(dataWords),
       mode: "cors",
     })
       .then(response => {
@@ -50,8 +53,8 @@ export const Row = props => {
           throw new Error("Something went wrong ...");
         }
       })
-      .then(data => {
-        console.log(data);
+      .then(dataWords => {
+        console.log(dataWords);
       })
       .catch(error => console.log(error));
   };
@@ -62,7 +65,7 @@ export const Row = props => {
       headers: {
         "Content-Type": "application/json;charset=utf-8",
       },
-      body: JSON.stringify(data),
+      body: JSON.stringify(dataWords),
       mode: "cors",
     })
       .then(response => {
@@ -72,8 +75,8 @@ export const Row = props => {
           throw new Error("Something went wrong ...");
         }
       })
-      .then(data => {
-        console.log(data);
+      .then(dataWords => {
+        console.log(dataWords);
       })
       .catch(error => console.log(error));
   };
@@ -84,7 +87,7 @@ export const Row = props => {
       headers: {
         "Content-Type": "application/json;charset=utf-8",
       },
-      body: JSON.stringify(data),
+      body: JSON.stringify(dataWords),
       mode: "cors",
     })
       .then(response => {
@@ -94,8 +97,8 @@ export const Row = props => {
           throw new Error("Something went wrong ...");
         }
       })
-      .then(data => {
-        console.log(data);
+      .then(dataWords => {
+        console.log(dataWords);
       })
       .catch(error => console.log(error));
   };

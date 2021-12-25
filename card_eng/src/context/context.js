@@ -7,7 +7,7 @@ const DataContext = React.createContext();
 
 const DataContextProvider = props => {
   // данные
-  const [data, setData] = useState([]);
+  const [dataWords, setDataWords] = useState([]);
   // спинер
   const [isLoading, setIsLoading] = useState(false);
 
@@ -23,7 +23,7 @@ const DataContextProvider = props => {
         }
       })
       .then(data => {
-        setData(data);
+        setDataWords(data);
         setTimeout(() => setIsLoading(false), 3000);
       })
       // Для обработки ошибок в Promise вместе с then используется метод catch
@@ -34,7 +34,7 @@ const DataContextProvider = props => {
 
   if (isLoading) return <Loader />;
   return (
-    <DataContext.Provider value={{ data, setIsLoading }}>
+    <DataContext.Provider value={{ dataWords, setIsLoading }}>
       {props.children}
     </DataContext.Provider>
   );
