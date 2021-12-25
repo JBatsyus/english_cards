@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Loader from "../../loader/loader";
+import Loader from "../components/loader/loader.jsx";
 
 // создание контекста
 
@@ -13,12 +13,17 @@ const DataContextProvider = props => {
 
   useEffect(() => {
     setIsLoading(true);
-    fetch("http://itgirlschool.justmakeit.ru/api/words")
-      .then(response => response.json())
+    fetch("/api/words")
+      .then(response => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw new Error("Something went wrong ...");
+        }
+      })
       .then(data => {
         setData(data);
         setTimeout(() => setIsLoading(false), 5000);
-        // setIsLoading(false);
       });
   }, []);
 

@@ -1,6 +1,6 @@
 import { Row } from "./Row";
 import { useContext } from "react";
-import { DataContext } from "../context/context";
+import { DataContext } from "../../context/context";
 
 const TableWords = () => {
   const { data } = useContext(DataContext);
