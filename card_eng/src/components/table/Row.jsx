@@ -43,7 +43,13 @@ export const Row = props => {
       body: JSON.stringify(data),
       mode: "cors",
     })
-      .then(response => response.json())
+      .then(response => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw new Error("Something went wrong ...");
+        }
+      })
       .then(data => {
         console.log(data);
       })
@@ -59,7 +65,13 @@ export const Row = props => {
       body: JSON.stringify(data),
       mode: "cors",
     })
-      .then(response => response.json())
+      .then(response => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw new Error("Something went wrong ...");
+        }
+      })
       .then(data => {
         console.log(data);
       })
@@ -75,7 +87,13 @@ export const Row = props => {
       body: JSON.stringify(data),
       mode: "cors",
     })
-      .then(response => response.json())
+      .then(response => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw new Error("Something went wrong ...");
+        }
+      })
       .then(data => {
         console.log(data);
       })
@@ -153,16 +171,16 @@ export const Row = props => {
           <ButtonEdit
             className="btn_editMode"
             onClick={() => {
-              updateWord;
               handleEditChange(true);
+              updateWord;
             }}
           />
         ) : (
           <ButtonSave
             className="btn_editMode"
             onClick={() => {
-              addNewWord;
               handleEditChange(false);
+              addNewWord;
             }}
             disabled={Object.keys(errors).length}
           />
