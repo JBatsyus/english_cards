@@ -152,12 +152,18 @@ export const Row = props => {
         {!editMode ? (
           <ButtonEdit
             className="btn_editMode"
-            onClick={() => handleEditChange(true)}
+            onClick={() => {
+              updateWord;
+              handleEditChange(true);
+            }}
           />
         ) : (
           <ButtonSave
             className="btn_editMode"
-            onClick={() => handleEditChange(false)}
+            onClick={() => {
+              addNewWord;
+              handleEditChange(false);
+            }}
             disabled={Object.keys(errors).length}
           />
         )}
