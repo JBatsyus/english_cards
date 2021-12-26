@@ -3,8 +3,6 @@ import ButtonEdit from "../buttons/ButtonEdit";
 import ButtonSave from "../buttons/ButtonSave";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
-import { useContext } from "react";
-import { DataContext } from "../../context/context";
 
 export const Row = props => {
   // register — это функция, которую нужно подключить к каждому из полей ввода в качестве ссылки.
@@ -15,7 +13,6 @@ export const Row = props => {
   } = useForm({
     mode: "onChange",
   });
-  const { dataWords } = useContext(DataContext);
 
   // состояние, отражающее изменения внутри инпутов
   const [editMode, setEditMode] = useState(false);
@@ -43,7 +40,7 @@ export const Row = props => {
       headers: {
         "Content-Type": "application/json;charset=utf-8",
       },
-      body: JSON.stringify(dataWords),
+      body: JSON.stringify(data),
       mode: "cors",
     })
       .then(response => {
@@ -53,19 +50,19 @@ export const Row = props => {
           throw new Error("Something went wrong ...");
         }
       })
-      .then(dataWords => {
-        console.log(dataWords);
+      .then(data => {
+        console.log(data);
       })
       .catch(error => console.log(error));
   };
 
   const updateWord = () => {
-    fetch(`/api/words/${data.id}/update`, {
+    fetch(`/api/words/${props.id}/update`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json;charset=utf-8",
       },
-      body: JSON.stringify(dataWords),
+      body: JSON.stringify(data),
       mode: "cors",
     })
       .then(response => {
@@ -75,19 +72,19 @@ export const Row = props => {
           throw new Error("Something went wrong ...");
         }
       })
-      .then(dataWords => {
-        console.log(dataWords);
+      .then(data => {
+        console.log(data);
       })
       .catch(error => console.log(error));
   };
 
   const deleteWord = () => {
-    fetch(`/api/words/${data.id}/delete `, {
+    fetch(`/api/words/${props.id}/delete `, {
       method: "POST",
       headers: {
         "Content-Type": "application/json;charset=utf-8",
       },
-      body: JSON.stringify(dataWords),
+      body: JSON.stringify(data),
       mode: "cors",
     })
       .then(response => {
@@ -97,8 +94,8 @@ export const Row = props => {
           throw new Error("Something went wrong ...");
         }
       })
-      .then(dataWords => {
-        console.log(dataWords);
+      .then(data => {
+        console.log(data);
       })
       .catch(error => console.log(error));
   };
@@ -188,7 +185,7 @@ export const Row = props => {
             disabled={Object.keys(errors).length}
           />
         )}
-        <ButtonDelete onClick={deleteWord()} />
+        <ButtonDelete onClick={deleteWord} />
       </td>
     </tr>
   );
