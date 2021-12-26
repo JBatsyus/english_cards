@@ -3,6 +3,9 @@ import ButtonEdit from "../buttons/ButtonEdit";
 import ButtonSave from "../buttons/ButtonSave";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
+import { useContext } from "react/cjs/react.production.min";
+import { DataContext } from "../../context/context";
+import ErrorServer from "../error/errorServer";
 
 export const Row = props => {
   // register — это функция, которую нужно подключить к каждому из полей ввода в качестве ссылки.
@@ -23,6 +26,12 @@ export const Row = props => {
   });
   const notValidWords =
     data.english === "" || data.transcription === "" || data.russian === "";
+
+  // состояние ошибки
+  const [error, setError] = useState(false);
+
+  // обновление строк в таблице
+  const { UpdateRow } = useContext(DataContext);
 
   const handleEditChange = isEdit => {
     if (!notValidWords) {
@@ -53,7 +62,10 @@ export const Row = props => {
       .then(data => {
         console.log(data);
       })
-      .catch(error => console.log(error));
+      .catch(error => {
+        if (error) return <ErrorServer />;
+      });
+    UpdateRow();
   };
 
   const updateWord = () => {
@@ -75,7 +87,10 @@ export const Row = props => {
       .then(data => {
         console.log(data);
       })
-      .catch(error => console.log(error));
+      .catch(error => {
+        if (error) return <ErrorServer />;
+      });
+    UpdateRow();
   };
 
   const deleteWord = () => {
@@ -97,7 +112,10 @@ export const Row = props => {
       .then(data => {
         console.log(data);
       })
-      .catch(error => console.log(error));
+      .catch(error => {
+        if (error) return <ErrorServer />;
+      });
+    UpdateRow();
   };
 
   return (
