@@ -27,11 +27,11 @@ export const Row = props => {
   const notValidWords =
     data.english === "" || data.transcription === "" || data.russian === "";
 
-  // состояние ошибки
-  const [error, setError] = useState(false);
+  // // обновление строк в таблице
+  const [updateData] = useContext(DataContext);
 
-  // обновление строк в таблице
-  const { UpdateRow } = useContext(DataContext);
+  // // состояние ошибки
+  const [error, setError] = useState(false);
 
   const handleEditChange = isEdit => {
     if (!notValidWords) {
@@ -60,12 +60,13 @@ export const Row = props => {
         }
       })
       .then(data => {
+        updateData();
         console.log(data);
       })
       .catch(error => {
-        if (error) return <ErrorServer />;
+        console.log(error);
+        setError(true);
       });
-    UpdateRow();
   };
 
   const updateWord = () => {
@@ -85,12 +86,13 @@ export const Row = props => {
         }
       })
       .then(data => {
+        updateData();
         console.log(data);
       })
       .catch(error => {
-        if (error) return <ErrorServer />;
+        console.log(error);
+        setError(true);
       });
-    UpdateRow();
   };
 
   const deleteWord = () => {
@@ -111,12 +113,15 @@ export const Row = props => {
       })
       .then(data => {
         console.log(data);
+        updateData();
       })
       .catch(error => {
-        if (error) return <ErrorServer />;
+        console.log(error);
+        setError(true);
       });
-    UpdateRow();
   };
+
+  if (error) return <ErrorServer />;
 
   return (
     <tr key={props.id}>

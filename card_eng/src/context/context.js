@@ -27,17 +27,20 @@ const DataContextProvider = props => {
       })
       .then(data => {
         setDataWords(data);
-        setTimeout(() => setIsLoading(false), 3000);
+        // setTimeout(() => setIsLoading(false), 3000);
+        setIsLoading(false);
       })
       // Для обработки ошибок в Promise вместе с then используется метод catch
       .catch(error => {
-        if (error) return <ErrorServer />;
+        console.log(error);
+        setIsLoading(false);
+        setError(true);
       });
   }, []);
 
   // функция для обновления  таблицы
 
-  const UpdateRow = () => {
+  const updateData = () => {
     () => {
       setIsLoading(true);
       fetch("/api/words")
@@ -51,19 +54,27 @@ const DataContextProvider = props => {
         })
         .then(data => {
           setDataWords(data);
-          setTimeout(() => setIsLoading(false), 3000);
+          // setTimeout(() => setIsLoading(false), 2000);
+          setIsLoading(false);
         })
         // Для обработки ошибок в Promise вместе с then используется метод catch
         .catch(error => {
-          if (error) return <ErrorServer />;
+          console.log(error);
+          setIsLoading(false);
+          // setError(true);
         });
     };
   };
 
-  if (isLoading || dataWords.length === 0) return <Loader />;
+  useEffect(() => {
+    updateData();
+  }, []);
+
+  if (isLoading) return <Loader />;
+  if (error) return <ErrorServer />;
 
   return (
-    <DataContext.Provider value={{ dataWords, setIsLoading, UpdateRow }}>
+    <DataContext.Provider value={{ dataWords, setIsLoading, updateData }}>
       {props.children}
     </DataContext.Provider>
   );
