@@ -82,7 +82,6 @@ export const Row = props => {
         }
       })
       .then(data => {
-        updateData();
         console.log(data);
       })
       .catch(error => {
