@@ -1,6 +1,7 @@
 import ButtonDelete from "../buttons/ButtonDelete";
 import ButtonEdit from "../buttons/ButtonEdit";
 import ButtonSave from "../buttons/ButtonSave";
+import NewInput from "../table/newInput";
 import { useForm } from "react-hook-form";
 import { useState, useContext } from "react";
 import { DataContext } from "../../context/context";
@@ -40,31 +41,7 @@ export const Row = props => {
   const { updateData } = useContext(DataContext);
   const [error, setError] = useState(false);
 
-  // методы добавления, изменения и удаления слов
-  const addNewWord = () => {
-    fetch("/api/words/add", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json;charset=utf-8",
-      },
-      body: JSON.stringify(data),
-    })
-      .then(response => {
-        if (response.ok) {
-          return response.json();
-        } else {
-          throw new Error("Something went wrong ...");
-        }
-      })
-      .then(data => {
-        updateData();
-        console.log(data);
-      })
-      .catch(error => {
-        console.log(error);
-        setError(true);
-      });
-  };
+  // методы  изменения и удаления слов
 
   const updateWord = () => {
     fetch(`/api/words/${props.id}/update`, {
@@ -198,7 +175,7 @@ export const Row = props => {
             className="btn_editMode"
             onClick={() => {
               handleEditChange(false);
-              addNewWord();
+              // addNewWord();
             }}
             disabled={Object.keys(errors).length}
           />
