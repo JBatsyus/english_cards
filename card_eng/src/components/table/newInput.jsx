@@ -69,11 +69,12 @@ const NewInput = () => {
       <td>
         <input
           className={`input_editMode ${
-            !data.english.length ? "inputError" : ""
+            !data.english.length ? "inputNull" : ""
           }`}
           type="text"
           name="english"
           value={data.english}
+          placeholder="English Word"
           {...register("english", {
             required: true,
             pattern: /^[A-Za-z]+$/i,
@@ -92,11 +93,12 @@ const NewInput = () => {
       <td>
         <input
           className={`input_editMode ${
-            !data.transcription.length ? "inputError" : ""
+            !data.transcription.length ? "inputNull" : ""
           }`}
           type="text"
           name="transcription"
           value={data.transcription}
+          placeholder="Transcription"
           {...register("transcription", {
             required: true,
             onChange: handleChange,
@@ -110,11 +112,12 @@ const NewInput = () => {
       <td>
         <input
           className={`input_editMode ${
-            !data.russian.length ? "inputError" : ""
+            !data.russian.length ? "inputNull" : ""
           }`}
           type="text"
           name="russian"
           value={data.russian}
+          placeholder="Russian Word"
           {...register("russian", {
             required: true,
             pattern: /^[\u0400-\u04FF]+$/i,
