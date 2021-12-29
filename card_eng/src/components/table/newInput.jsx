@@ -1,10 +1,21 @@
-import { DataContext } from "../../context/context";
 import ButtonSave from "../buttons/ButtonSave";
-import ErrorServer from "../error/errorServer";
+import { DataContext } from "../../context/context";
 import { useState, useContext } from "react";
 import { useForm } from "react-hook-form";
 
 const NewInput = () => {
+  // записала пустые поля в инпуте
+  const [data, setData] = useState({
+    english: "",
+    transcription: "",
+    russian: "",
+  });
+  //   обновление таблицы
+  const { updateData } = useContext(DataContext);
+
+  // register — это функция, которую нужно подключить к каждому из полей ввода в качестве ссылки.
+  // Функция register будет принимать значение, которое пользователь ввел в каждое поле, и проверять его.
+  //   register также передаст каждое значение в функцию, которая будет вызвана при отправке формы
   const {
     register,
     formState: { errors },
@@ -12,42 +23,29 @@ const NewInput = () => {
     mode: "onChange",
   });
 
-  const [newWord, setNewWord] = useState({
-    english: "",
-    transcription: "",
-    russian: "",
-  });
-  const { updateData } = useContext(DataContext);
-  const [error, setError] = useState({
-    english: false,
-    transcription: false,
-    russian: false,
-  });
+  // состояние, отражающее изменения внутри инпутов
+  //   const [editMode, setEditMode] = useState(false);
 
   const notValidWords =
-    newWord.english === "" ||
-    newWord.transcription === "" ||
-    newWord.russian === "";
+    data.english === "" || data.transcription === "" || data.russian === "";
 
   const handleEditChange = () => {
     if (!notValidWords) {
-      console.log(newWord);
+      console.log(data);
     }
-    //   setEditMode(isEdit);
   };
 
   const handleChange = event =>
-    setNewWord({ ...newWord, [event.target.name]: event.target.value });
+    setData({ ...data, [event.target.name]: event.target.value });
 
   // метод добавления слова
-
   const addNewWord = () => {
     fetch("/api/words/add", {
       method: "POST",
       headers: {
         "Content-Type": "application/json;charset=utf-8",
       },
-      body: JSON.stringify(newWord),
+      body: JSON.stringify(data),
     })
       .then(response => {
         if (response.ok) {
@@ -56,27 +54,26 @@ const NewInput = () => {
           throw new Error("Something went wrong ...");
         }
       })
-      .then(newWord => {
+      .then(data => {
         updateData();
-        console.log(newWord);
+        console.log(data);
       })
       .catch(error => {
         console.log(error);
-        setError(true);
+        // setError(true);
       });
   };
-  if (error) return <ErrorServer />;
 
   return (
     <tr>
       <td>
         <input
           className={`input_editMode ${
-            !newWord.english.length ? "inputError" : ""
+            !data.english.length ? "inputError" : ""
           }`}
           type="text"
           name="english"
-          value={newWord.english}
+          value={data.english}
           {...register("english", {
             required: true,
             pattern: /^[A-Za-z]+$/i,
@@ -95,11 +92,11 @@ const NewInput = () => {
       <td>
         <input
           className={`input_editMode ${
-            !newWord.transcription.length ? "inputError" : ""
+            !data.transcription.length ? "inputError" : ""
           }`}
           type="text"
           name="transcription"
-          value={newWord.transcription}
+          value={data.transcription}
           {...register("transcription", {
             required: true,
             onChange: handleChange,
@@ -113,11 +110,11 @@ const NewInput = () => {
       <td>
         <input
           className={`input_editMode ${
-            !newWord.russian.length ? "inputError" : ""
+            !data.russian.length ? "inputError" : ""
           }`}
           type="text"
           name="russian"
-          value={newWord.russian}
+          value={data.russian}
           {...register("russian", {
             required: true,
             pattern: /^[\u0400-\u04FF]+$/i,
@@ -137,7 +134,6 @@ const NewInput = () => {
             handleEditChange(false);
             addNewWord();
           }}
-          disabled={Object.keys(errors).length}
         />
       </td>
     </tr>

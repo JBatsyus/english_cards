@@ -1,7 +1,6 @@
 import ButtonDelete from "../buttons/ButtonDelete";
 import ButtonEdit from "../buttons/ButtonEdit";
 import ButtonSave from "../buttons/ButtonSave";
-import NewInput from "../table/newInput";
 import { useForm } from "react-hook-form";
 import { useState, useContext } from "react";
 import { DataContext } from "../../context/context";
@@ -175,7 +174,7 @@ export const Row = props => {
             className="btn_editMode"
             onClick={() => {
               handleEditChange(false);
-              // addNewWord();
+              updateWord();
             }}
             disabled={Object.keys(errors).length}
           />

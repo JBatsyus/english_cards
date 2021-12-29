@@ -1,5 +1,6 @@
 import "./table.scss";
 import TableWords from "../table/TableWords";
+import NewInput from "../table/newInput";
 
 const Table = () => {
   return (
@@ -13,7 +14,9 @@ const Table = () => {
             <th>Actions</th>
           </tr>
         </thead>
+
         <tbody>
+          <NewInput />
           <TableWords />
         </tbody>
       </table>
