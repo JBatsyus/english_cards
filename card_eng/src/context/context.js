@@ -37,28 +37,26 @@ const DataContextProvider = props => {
   // // функция для обновления  таблицы
 
   const updateData = () => {
-    () => {
-      setIsLoading(true);
-      setError(false);
-      fetch("/api/words")
-        .then(response => {
-          if (response.ok) {
-            return response.json();
-          } else {
-            throw new Error("Something went wrong ...");
-          }
-        })
-        .then(data => {
-          setDataWords(data);
-          // setTimeout(() => setIsLoading(false), 3000);
-          setIsLoading(false);
-        })
-        .catch(error => {
-          console.log(error);
-          setIsLoading(false);
-          setError(true);
-        });
-    };
+    setIsLoading(true);
+    setError(false);
+    fetch("/api/words")
+      .then(response => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw new Error("Something went wrong ...");
+        }
+      })
+      .then(data => {
+        setDataWords(data);
+        // setTimeout(() => setIsLoading(false), 3000);
+        setIsLoading(false);
+      })
+      .catch(error => {
+        console.log(error);
+        setIsLoading(false);
+        setError(true);
+      });
   };
 
   useEffect(() => {
