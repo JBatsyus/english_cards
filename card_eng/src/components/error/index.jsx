@@ -5,7 +5,7 @@ const Error = () => {
   return (
     <div className="wrapper">
       <div className="wrapper__error">
-        <img className="text__error" src={error} alt={"logo"}></img>
+        <img className="text__error" src={error} alt={"Ooops!..."}></img>
       </div>
     </div>
   );

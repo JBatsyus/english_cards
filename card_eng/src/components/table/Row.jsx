@@ -2,8 +2,7 @@ import ButtonDelete from "../buttons/ButtonDelete";
 import ButtonEdit from "../buttons/ButtonEdit";
 import ButtonSave from "../buttons/ButtonSave";
 import { useForm } from "react-hook-form";
-import { useState } from "react";
-import { useContext } from "react/cjs/react.production.min";
+import { useState, useContext } from "react";
 import { DataContext } from "../../context/context";
 import ErrorServer from "../error/errorServer";
 
@@ -27,20 +26,19 @@ export const Row = props => {
   const notValidWords =
     data.english === "" || data.transcription === "" || data.russian === "";
 
-  // // обновление строк в таблице
-  const [updateData] = useContext(DataContext);
-
-  // // состояние ошибки
-  const [error, setError] = useState(false);
-
   const handleEditChange = isEdit => {
     if (!notValidWords) {
       console.log(data);
     }
     setEditMode(isEdit);
   };
+
   const handleChange = event =>
     setData({ ...data, [event.target.name]: event.target.value });
+
+  // // обновление строк в таблице
+  const { updateData } = useContext(DataContext);
+  const [error, setError] = useState(false);
 
   // методы добавления, изменения и удаления слов
   const addNewWord = () => {
@@ -50,7 +48,6 @@ export const Row = props => {
         "Content-Type": "application/json;charset=utf-8",
       },
       body: JSON.stringify(data),
-      mode: "cors",
     })
       .then(response => {
         if (response.ok) {
@@ -76,7 +73,6 @@ export const Row = props => {
         "Content-Type": "application/json;charset=utf-8",
       },
       body: JSON.stringify(data),
-      mode: "cors",
     })
       .then(response => {
         if (response.ok) {

@@ -5,7 +5,6 @@ const Card = props => {
   const { english, transcription, translation } = props;
 
   const [pressed, setPressed] = useState(false);
-
   const ref = useRef();
 
   useEffect(() => {

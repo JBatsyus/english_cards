@@ -1,13 +1,13 @@
-import "./error.scss";
+import "./errorServ.scss";
 import errorServv from "../../assets/images/errorServv.jpg";
 
 const ErrorServer = () => {
   return (
-    <div className="wrapper">
-      <div className="wrapper__error">
-        <img className="text__error" src={errorServv} alt={"error"}></img>
-      </div>
-    </div>
+    <img
+      className="error_img"
+      src={errorServv}
+      alt={"Oops!...I did it again"}
+    ></img>
   );
 };
 export default ErrorServer;

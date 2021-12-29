@@ -1,11 +1,8 @@
-.wrapper {
-  flex: 1 1 auto;
-  background: url(../../assets/images/errorServv.jpg);
-  background-size: 100%;
+.error_img {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
 }
-
-//   .text__error {
-//     margin-top: 5%;
-//     width: 15%;
-//     margin-right: -10%;
-//   }

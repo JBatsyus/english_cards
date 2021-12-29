@@ -7,17 +7,14 @@ import ErrorServer from "../components/error/errorServer.jsx";
 const DataContext = React.createContext();
 
 const DataContextProvider = props => {
-  // данные
   const [dataWords, setDataWords] = useState([]);
-  // спинер
   const [isLoading, setIsLoading] = useState(false);
-  // состояние ошибки
   const [error, setError] = useState(false);
 
   useEffect(() => {
     setIsLoading(true);
+    setError(false);
     fetch("/api/words")
-      // В первом then происходит получение объекта Response. Данный объект хранит в себе состояние нашего запроса
       .then(response => {
         if (response.ok) {
           return response.json();
@@ -30,7 +27,6 @@ const DataContextProvider = props => {
         // setTimeout(() => setIsLoading(false), 3000);
         setIsLoading(false);
       })
-      // Для обработки ошибок в Promise вместе с then используется метод catch
       .catch(error => {
         console.log(error);
         setIsLoading(false);
@@ -38,13 +34,13 @@ const DataContextProvider = props => {
       });
   }, []);
 
-  // функция для обновления  таблицы
+  // // функция для обновления  таблицы
 
   const updateData = () => {
     () => {
       setIsLoading(true);
+      setError(false);
       fetch("/api/words")
-        // В первом then происходит получение объекта Response. Данный объект хранит в себе состояние нашего запроса
         .then(response => {
           if (response.ok) {
             return response.json();
@@ -54,14 +50,13 @@ const DataContextProvider = props => {
         })
         .then(data => {
           setDataWords(data);
-          // setTimeout(() => setIsLoading(false), 2000);
+          // setTimeout(() => setIsLoading(false), 3000);
           setIsLoading(false);
         })
-        // Для обработки ошибок в Promise вместе с then используется метод catch
         .catch(error => {
           console.log(error);
           setIsLoading(false);
-          // setError(true);
+          setError(true);
         });
     };
   };
@@ -70,11 +65,11 @@ const DataContextProvider = props => {
     updateData();
   }, []);
 
-  if (isLoading) return <Loader />;
   if (error) return <ErrorServer />;
+  if (isLoading || !dataWords.length) return <Loader />;
 
   return (
-    <DataContext.Provider value={{ dataWords, setIsLoading, updateData }}>
+    <DataContext.Provider value={{ dataWords, isLoading, updateData }}>
       {props.children}
     </DataContext.Provider>
   );
