@@ -5,8 +5,10 @@ class WordsStore {
   error = false;
   isLoading = false;
 
+  // Когда у нас были контексты, мы загружали в первый раз данные, когда контекст создался первый раз (useEffect с пустым массивом зависимостей), здесь в mobX нужно сделать то же самое во время инициализации стора, то есть в конструторе
   constructor() {
     makeAutoObservable(this);
+    this.loadData();
   }
 
   // загрузка данных с сервера
@@ -38,7 +40,8 @@ class WordsStore {
       headers: {
         "Content-Type": "application/json;charset=utf-8",
       },
-      body: JSON.stringify(words),
+      // внутри класса обращение к полям класса происходит через  this, то есть words нужно поменять на this.words
+      body: JSON.stringify(this.words),
     })
       .then(response => {
         if (response.ok) {

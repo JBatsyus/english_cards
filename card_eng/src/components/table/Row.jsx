@@ -17,12 +17,12 @@ export const Row = props => {
   // состояние, отражающее изменения внутри инпутов
   const [editMode, setEditMode] = useState(false);
   const [data, setData] = useState({
-    word: props.word,
+    english: props.english,
     transcription: props.transcription,
     russian: props.russian,
   });
   const notValidWords =
-    data.word === "" || data.transcription === "" || data.russian === "";
+    data.english === "" || data.transcription === "" || data.russian === "";
 
   const handleEditChange = isEdit => {
     if (!notValidWords) {
@@ -37,10 +37,12 @@ export const Row = props => {
     <tr key={props.id}>
       <td>
         <input
-          className={`input_editMode ${!data.word.length ? "inputError" : ""}`}
+          className={`input_editMode ${
+            !data.english.length ? "inputError" : ""
+          }`}
           type="text"
-          name="word"
-          value={data.word}
+          name="english"
+          value={data.english}
           disabled={!editMode}
           {...register("word", {
             required: true,
@@ -51,8 +53,9 @@ export const Row = props => {
 
         {
           <div className="error">
-            {errors.word?.type === "required" && "Заполните, пожалуйста, поле"}
-            {errors.word?.type === "pattern" &&
+            {errors.english?.type === "required" &&
+              "Заполните, пожалуйста, поле"}
+            {errors.english?.type === "pattern" &&
               "Только буквы латинского алфавита"}
           </div>
         }
