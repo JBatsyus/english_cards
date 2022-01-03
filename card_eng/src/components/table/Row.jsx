@@ -113,7 +113,7 @@ export const Row = inject(["wordsStore"])(
               className="btn_editMode"
               onClick={() => {
                 handleEditChange(true);
-                updateWord;
+                updateWord({ id: props.id });
               }}
             />
           ) : (
@@ -121,12 +121,12 @@ export const Row = inject(["wordsStore"])(
               className="btn_editMode"
               onClick={() => {
                 handleEditChange(false);
-                updateWord;
+                updateWord({ id: props.id });
               }}
               disabled={Object.keys(errors).length}
             />
           )}
-          <ButtonDelete onClick={deleteWord} />
+          <ButtonDelete onClick={() => deleteWord({ id: props.id })} />
         </td>
       </tr>
     );
