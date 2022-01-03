@@ -27,7 +27,7 @@ class WordsStore {
         this.words = response;
         this.isLoading = false;
       })
-      .catch(error => {
+      .catch(() => {
         this.error = true;
         this.isLoading = false;
       });
@@ -50,7 +50,7 @@ class WordsStore {
           throw new Error("Something went wrong ...");
         }
       })
-      .then(response => {
+      .then(() => {
         this.loadData();
       });
   };
@@ -75,7 +75,7 @@ class WordsStore {
       .then(words => {
         console.log(words);
       })
-      .catch(error => {
+      .catch(() => {
         this.error = true;
         this.isLoading = false;
       });
@@ -102,10 +102,10 @@ class WordsStore {
           throw new Error("Something went wrong ...");
         }
       })
-      .then(response => {
+      .then(() => {
         this.loadData();
       })
-      .catch(error => {
+      .catch(() => {
         this.error = true;
         this.isLoading = false;
       });

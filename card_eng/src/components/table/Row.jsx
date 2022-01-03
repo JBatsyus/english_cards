@@ -4,14 +4,13 @@ import ButtonSave from "../buttons/ButtonSave";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 import { observer, inject } from "mobx-react";
-import ErrorServer from "../error/errorServer";
-import Loader from "../loader/loader";
 
 export const Row = inject(["wordsStore"])(
-  observer(({ wordsStore }) => {
-    const allWords = wordsStore.words;
-    const errorMob = wordsStore.error;
-    const loaderMob = wordsStore.isLoading;
+  observer(props => {
+    console.log(props);
+    const updateWord = props.wordsStore.updateWord;
+    const deleteWord = props.wordsStore.deleteWord;
+
     // register — это функция, которую нужно подключить к каждому из полей ввода в качестве ссылки.
     // Функция register будет принимать значение, которое пользователь ввел в каждое поле, и проверять его. register также передаст каждое значение в функцию, которая будет вызвана при отправке формы
     const {
@@ -24,9 +23,9 @@ export const Row = inject(["wordsStore"])(
     // состояние, отражающее изменения внутри инпутов
     const [editMode, setEditMode] = useState(false);
     const [data, setData] = useState({
-      english: allWords.english,
-      transcription: allWords.transcription,
-      russian: allWords.russian,
+      english: props.english,
+      transcription: props.transcription,
+      russian: props.russian,
     });
     const notValidWords =
       data.english === "" || data.transcription === "" || data.russian === "";
@@ -40,11 +39,8 @@ export const Row = inject(["wordsStore"])(
     const handleChange = event =>
       setData({ ...data, [event.target.name]: event.target.value });
 
-    if (errorMob) return <ErrorServer />;
-    if (loaderMob) return <Loader />;
-
     return (
-      <tr key={allWords.id}>
+      <tr key={props.id}>
         <td>
           <input
             className={`input_editMode ${
@@ -115,16 +111,22 @@ export const Row = inject(["wordsStore"])(
           {!editMode ? (
             <ButtonEdit
               className="btn_editMode"
-              onClick={() => handleEditChange(true)}
+              onClick={() => {
+                handleEditChange(true);
+                updateWord;
+              }}
             />
           ) : (
             <ButtonSave
               className="btn_editMode"
-              onClick={() => handleEditChange(false)}
+              onClick={() => {
+                handleEditChange(false);
+                updateWord;
+              }}
               disabled={Object.keys(errors).length}
             />
           )}
-          <ButtonDelete />
+          <ButtonDelete onClick={deleteWord} />
         </td>
       </tr>
     );
