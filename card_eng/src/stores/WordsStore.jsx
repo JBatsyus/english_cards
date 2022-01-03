@@ -63,7 +63,7 @@ class WordsStore {
       headers: {
         "Content-Type": "application/json;charset=utf-8",
       },
-      body: JSON.stringify(words),
+      body: JSON.stringify(this.words),
     })
       .then(response => {
         if (response.ok) {
@@ -92,7 +92,7 @@ class WordsStore {
       headers: {
         "Content-Type": "application/json;charset=utf-8",
       },
-      body: JSON.stringify(words),
+      body: JSON.stringify(this.words),
       mode: "cors",
     })
       .then(response => {

@@ -44,7 +44,7 @@ export const Row = props => {
           name="english"
           value={data.english}
           disabled={!editMode}
-          {...register("word", {
+          {...register("english", {
             required: true,
             pattern: /^[A-Za-z]+$/i,
             onChange: handleChange,

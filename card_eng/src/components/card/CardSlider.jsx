@@ -7,20 +7,21 @@ import { observer, inject } from "mobx-react";
 
 const CardSlider = inject(["wordsStore"])(
   observer(({ wordsStore }) => {
+    const allWords = wordsStore.words;
     const [selectedCard, setSelectedCard] = useState(0);
     const [count, setCount] = useState(0);
 
     const handleClickButtonNext = () => {
       // бесконечная карусель
-      const newIdx = (selectedCard + 1) % wordsStore.length;
-      if (newIdx < wordsStore.length) {
+      const newIdx = (selectedCard + 1) % allWords.length;
+      if (newIdx < allWords.length) {
         setSelectedCard(newIdx);
       }
     };
 
     const handleClickButtonBack = () => {
       // переключение карточек в обратном направлении
-      const oldIdx = (selectedCard - 1 + wordsStore.length) % wordsStore.length;
+      const oldIdx = (selectedCard - 1 + allWords.length) % allWords.length;
       if (oldIdx >= 0) {
         setSelectedCard(oldIdx);
       }
@@ -40,10 +41,10 @@ const CardSlider = inject(["wordsStore"])(
             // disabled={selectedCard === 0}
           />
           <Card
-            key={wordsStore[selectedCard].id}
-            word={wordsStore[selectedCard].english}
-            transcription={wordsStore[selectedCard].transcription}
-            translation={wordsStore[selectedCard].russian}
+            key={allWords[selectedCard].id}
+            word={allWords[selectedCard].english}
+            transcription={allWords[selectedCard].transcription}
+            translation={allWords[selectedCard].russian}
             increment={increment}
           />
           <ButtonNext
@@ -52,7 +53,7 @@ const CardSlider = inject(["wordsStore"])(
           />
         </div>
         <div className="cardCounter">
-          {selectedCard + 1} / {wordsStore.length}
+          {selectedCard + 1} / {allWords.length}
         </div>
       </div>
     );
