@@ -42,6 +42,12 @@
       border-bottom: 1px solid $red_McDonalds;
       text-align: center;
     }
+    .inputNull {
+      outline: none;
+      background: transparent;
+      border-bottom: 1px solid $color_yandex;
+      text-align: center;
+    }
     .error {
       color: $red_McDonalds;
       font-family: "Dosis-Regular", sans-serif;

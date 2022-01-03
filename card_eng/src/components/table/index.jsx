@@ -3,6 +3,7 @@ import TableWords from "../table/TableWords";
 import { observer, inject } from "mobx-react";
 import ErrorServer from "../error/errorServer";
 import Loader from "../loader/loader";
+import NewInput from "../table/newInput";
 
 const Table = inject(["wordsStore"])(
   observer(({ wordsStore }) => {
@@ -21,6 +22,7 @@ const Table = inject(["wordsStore"])(
             </tr>
           </thead>
           <tbody>
+            <NewInput />
             <TableWords />
           </tbody>
         </table>
