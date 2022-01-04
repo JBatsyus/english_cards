@@ -41,7 +41,7 @@ class WordsStore {
         "Content-Type": "application/json;charset=utf-8",
       },
       // внутри класса обращение к полям класса происходит через  this, то есть words нужно поменять на this.words
-      body: JSON.stringify(this.words),
+      body: JSON.stringify(this.word),
     })
       .then(response => {
         if (response.ok) {
@@ -63,7 +63,7 @@ class WordsStore {
       headers: {
         "Content-Type": "application/json;charset=utf-8",
       },
-      body: JSON.stringify(this.words),
+      body: JSON.stringify(this.word),
     })
       .then(response => {
         if (response.ok) {
@@ -80,11 +80,6 @@ class WordsStore {
         this.isLoading = false;
       });
   };
-
-  // удаляем слово
-  // removeWord = index => {
-  //   return this.words.splice(index, 1);
-  // };
 
   deleteWord = props => {
     fetch(`/api/words/${props.id}/delete`, {
@@ -103,7 +98,8 @@ class WordsStore {
         }
       })
       .then(() => {
-        return this.words.splice(props.id, 1);
+        // this.words.splice(props.id, 1);
+        this.words = this.words.filter(item => item.id !== props.id);
       })
       .catch(() => {
         this.error = true;

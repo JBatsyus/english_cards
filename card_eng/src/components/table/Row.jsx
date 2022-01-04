@@ -31,6 +31,7 @@ export const Row = inject(["wordsStore"])(
       transcription: props.transcription,
       russian: props.russian,
     });
+
     const notValidWords =
       data.english === "" || data.transcription === "" || data.russian === "";
 
