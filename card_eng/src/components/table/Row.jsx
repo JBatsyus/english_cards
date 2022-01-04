@@ -9,7 +9,11 @@ export const Row = inject(["wordsStore"])(
   observer(props => {
     console.log(props);
     const updateWord = props.wordsStore.updateWord;
-    const deleteWord = props.wordsStore.deleteWord;
+    // const deleteWord = props.wordsStore.deleteWord;
+    // удаление (?) ckjdf
+    const deleteWord = props => {
+      props.wordsStore.deleteWord(props.id);
+    };
 
     // register — это функция, которую нужно подключить к каждому из полей ввода в качестве ссылки.
     // Функция register будет принимать значение, которое пользователь ввел в каждое поле, и проверять его. register также передаст каждое значение в функцию, которая будет вызвана при отправке формы

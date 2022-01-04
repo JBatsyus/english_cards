@@ -37,8 +37,17 @@ const NewInput = inject(["wordsStore"])(
     const handleChange = event =>
       setData({ ...data, [event.target.name]: event.target.value });
 
-    const addNewWord = wordsStore.addNewWord;
+    // обновление стейта, не сохраняет слово
 
+    const addNewWord = () => {
+      if (!data) return;
+      wordsStore.addWord(data);
+      setData({
+        english: "",
+        transcription: "",
+        russian: "",
+      });
+    };
     return (
       <tr>
         <td>

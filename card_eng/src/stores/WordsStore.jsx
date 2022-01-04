@@ -34,7 +34,7 @@ class WordsStore {
   };
 
   // добавляем слово
-  addNewWord = () => {
+  addWord = word => {
     fetch("/api/words/add", {
       method: "POST",
       headers: {
@@ -51,7 +51,7 @@ class WordsStore {
         }
       })
       .then(() => {
-        this.loadData();
+        this.words.push(word);
       });
   };
 
@@ -87,7 +87,7 @@ class WordsStore {
   // };
 
   deleteWord = props => {
-    fetch(`/api/words/${props.id}/delete `, {
+    fetch(`/api/words/${props.id}/delete`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json;charset=utf-8",
@@ -103,7 +103,7 @@ class WordsStore {
         }
       })
       .then(() => {
-        this.loadData();
+        return this.words.splice(props.id, 1);
       })
       .catch(() => {
         this.error = true;
