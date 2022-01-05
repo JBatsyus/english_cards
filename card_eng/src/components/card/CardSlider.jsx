@@ -42,7 +42,7 @@ const CardSlider = inject(["wordsStore"])(
           />
           <Card
             key={allWords[selectedCard].id}
-            word={allWords[selectedCard].english}
+            english={allWords[selectedCard].english}
             transcription={allWords[selectedCard].transcription}
             translation={allWords[selectedCard].russian}
             increment={increment}

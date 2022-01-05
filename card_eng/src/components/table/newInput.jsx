@@ -12,6 +12,16 @@ const NewInput = inject(["wordsStore"])(
       russian: "",
     });
 
+    const addNewWord = () => {
+      if (!data) return;
+      wordsStore.addWord(data);
+      setData({
+        english: "",
+        transcription: "",
+        russian: "",
+      });
+    };
+
     // register — это функция, которую нужно подключить к каждому из полей ввода в качестве ссылки.
     // Функция register будет принимать значение, которое пользователь ввел в каждое поле, и проверять его.
     //   register также передаст каждое значение в функцию, которая будет вызвана при отправке формы
@@ -39,15 +49,6 @@ const NewInput = inject(["wordsStore"])(
 
     // обновление стейта, не сохраняет слово
 
-    const addNewWord = () => {
-      if (!data) return;
-      wordsStore.addWord(data);
-      setData({
-        english: "",
-        transcription: "",
-        russian: "",
-      });
-    };
     return (
       <tr>
         <td>

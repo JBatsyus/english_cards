@@ -41,7 +41,7 @@ class WordsStore {
         "Content-Type": "application/json;charset=utf-8",
       },
       // внутри класса обращение к полям класса происходит через  this, то есть words нужно поменять на this.words
-      body: JSON.stringify(this.word),
+      body: JSON.stringify(word),
     })
       .then(response => {
         if (response.ok) {
@@ -57,13 +57,13 @@ class WordsStore {
 
   // изменяем слово
 
-  updateWord = props => {
-    fetch(`/api/words/${props.id}/update`, {
+  updateWord = (id, editWord) => {
+    fetch(`/api/words/${id}/update`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json;charset=utf-8",
       },
-      body: JSON.stringify(this.word),
+      body: JSON.stringify(editWord),
     })
       .then(response => {
         if (response.ok) {
@@ -72,8 +72,9 @@ class WordsStore {
           throw new Error("Something went wrong ...");
         }
       })
-      .then(words => {
-        console.log(words);
+      .then(() => {
+        const index = this.words.findIndex(item => item.id === id);
+        this.words[index] = editWord;
       })
       .catch(() => {
         this.error = true;

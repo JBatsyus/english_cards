@@ -8,12 +8,17 @@ import { observer, inject } from "mobx-react";
 export const Row = inject(["wordsStore"])(
   observer(props => {
     console.log(props);
-    const updateWord = props.wordsStore.updateWord;
-    // const deleteWord = props.wordsStore.deleteWord;
-    // удаление (?) ckjdf
-    const deleteWord = props => {
-      props.wordsStore.deleteWord(props.id);
+
+    // const updateWord = props.wordsStore.updateWord;
+    const updateWord = (id, editWord) => {
+      props.wordsStore.updateWord(id, editWord);
     };
+
+    // удаление слова
+    const deleteWord = props.wordsStore.deleteWord;
+    // const deleteWord = id => {
+    //   props.wordsStore.deleteWord(id);
+    // };
 
     // register — это функция, которую нужно подключить к каждому из полей ввода в качестве ссылки.
     // Функция register будет принимать значение, которое пользователь ввел в каждое поле, и проверять его. register также передаст каждое значение в функцию, которая будет вызвана при отправке формы
@@ -118,7 +123,7 @@ export const Row = inject(["wordsStore"])(
               className="btn_editMode"
               onClick={() => {
                 handleEditChange(true);
-                updateWord({ id: props.id });
+                updateWord({ id: props.id, editWord: props.editWord });
               }}
             />
           ) : (
@@ -126,7 +131,7 @@ export const Row = inject(["wordsStore"])(
               className="btn_editMode"
               onClick={() => {
                 handleEditChange(false);
-                updateWord({ id: props.id });
+                updateWord({ id: props.id, editWord: props.editWord });
               }}
               disabled={Object.keys(errors).length}
             />
