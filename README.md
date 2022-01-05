@@ -20,7 +20,7 @@ _Изучай английский каждый день_.
 
 ---
 
-![GitHub language count](https://img.shields.io/github/languages/count/JBatsyus/english_cards?color=%23ffcc00) ![GitHub top language](https://img.shields.io/github/languages/top/JBatsyus/english_cards?color=%23ffcc00) ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/JBatsyus/english_cards?color=%23ffcc00) ![GitHub repo size](https://img.shields.io/github/repo-size/JBatsyus/english_cards?color=%23ffcc00) ![GitHub pull requests](https://img.shields.io/github/issues-pr/JBatsyus/english_cards) ![GitHub closed pull requests](https://img.shields.io/github/issues-pr-closed/JBatsyus/english_cards) ![GitHub last commit](https://img.shields.io/github/last-commit/JBatsyus/english_cards?color=%23ffcc00) ![GitHub language count](https://img.shields.io/github/languages/count/JBatsyus/english_cards?color=%23ffcc00) ![GitHub commit activity](https://img.shields.io/github/commit-activity/y/JBatsyus/english_cards?color=%23ffcc00)
+![GitHub top language](https://img.shields.io/github/languages/top/JBatsyus/english_cards?color=%23ffcc00) ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/JBatsyus/english_cards?color=%23ffcc00) ![GitHub repo size](https://img.shields.io/github/repo-size/JBatsyus/english_cards?color=%23ffcc00) ![GitHub closed pull requests](https://img.shields.io/github/issues-pr-closed/JBatsyus/english_cards) ![GitHub last commit](https://img.shields.io/github/last-commit/JBatsyus/english_cards?color=%23ffcc00) ![GitHub language count](https://img.shields.io/github/languages/count/JBatsyus/english_cards?color=%23ffcc00) ![GitHub commit activity](https://img.shields.io/github/commit-activity/y/JBatsyus/english_cards?color=%23ffcc00)
 
 ---
 
