@@ -114,8 +114,9 @@ export const Row = props => {
 
         {
           <div className="error">
-            {errors.word?.type === "required" && "Заполните, пожалуйста, поле"}
-            {errors.word?.type === "pattern" &&
+            {errors.english?.type === "required" &&
+              "Заполните, пожалуйста, поле"}
+            {errors.english?.type === "pattern" &&
               "Только буквы латинского алфавита"}
           </div>
         }
