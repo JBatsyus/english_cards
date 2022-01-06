@@ -26,7 +26,7 @@ _Изучай английский каждый день_.
 
 ---
 
-<!-- ![gif](https://github.com/gif) -->
+![gif](https://github.com/JBatsyus/english_cards/blob/main/card_eng/src/assets/images/readme.gif)
 
 #### Используемые технологии:
 
