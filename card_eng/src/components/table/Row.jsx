@@ -123,7 +123,7 @@ export const Row = inject(["wordsStore"])(
               className="btn_editMode"
               onClick={() => {
                 handleEditChange(true);
-                updateWord({ id: props.id, editWord: props.editWord });
+                // updateWord не надо добавлять, тк кнопку только нажали, но слово еще не обновили;
               }}
             />
           ) : (
@@ -131,7 +131,15 @@ export const Row = inject(["wordsStore"])(
               className="btn_editMode"
               onClick={() => {
                 handleEditChange(false);
-                updateWord({ id: props.id, editWord: props.editWord });
+                updateWord(
+                  props.id,
+                  { ...data, id: props.id },
+                  props.editWord,
+                  {
+                    ...data,
+                    editWord: props.editWord,
+                  },
+                );
               }}
               disabled={Object.keys(errors).length}
             />
