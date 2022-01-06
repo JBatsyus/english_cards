@@ -18,6 +18,8 @@ _Изучай английский каждый день_.
    2.1 _Карусель со словами из таблицы_ .<br>
    2.2 _Счетчик просмотра перевода слова_ (запускается при просмотре перевода, слово считается выученным).<br>
 
+Так же добавлен лоадер (ожидание загрузки с сервера)  страница 404.
+
 ---
 
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/y/JBatsyus/english_cards?color=%23ffcc00) ![GitHub top language](https://img.shields.io/github/languages/top/JBatsyus/english_cards?color=%23ffcc00) ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/JBatsyus/english_cards?color=%23ffcc00) ![GitHub closed pull requests](https://img.shields.io/github/issues-pr-closed/JBatsyus/english_cards) ![GitHub last commit](https://img.shields.io/github/last-commit/JBatsyus/english_cards?color=%23ffcc00) ![GitHub language count](https://img.shields.io/github/languages/count/JBatsyus/english_cards?color=%23ffcc00) 
