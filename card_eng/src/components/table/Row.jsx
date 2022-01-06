@@ -131,15 +131,7 @@ export const Row = inject(["wordsStore"])(
               onClick={() => {
                 handleEditChange(false);
                 // Здесь нужно передавать данные не из пропсов (потому что они исходные), а из стейта (обновленные); два аргумента
-                updateWord(
-                  props.id,
-                  { ...data, id: props.id },
-                  props.editWord,
-                  {
-                    ...data,
-                    editWord: props.editWord,
-                  },
-                );
+                updateWord(props.id, { ...data, id: props.id });
               }}
               disabled={Object.keys(errors).length}
             />
