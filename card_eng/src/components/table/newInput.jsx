@@ -12,6 +12,7 @@ const NewInput = inject(["wordsStore"])(
       russian: "",
     });
 
+    // записываем добавленное слово в word стора
     const addNewWord = () => {
       if (!data) return;
       wordsStore.addWord(data);
@@ -46,8 +47,6 @@ const NewInput = inject(["wordsStore"])(
 
     const handleChange = event =>
       setData({ ...data, [event.target.name]: event.target.value });
-
-    // обновление стейта, не сохраняет слово
 
     return (
       <tr>

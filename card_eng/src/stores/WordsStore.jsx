@@ -40,7 +40,6 @@ class WordsStore {
       headers: {
         "Content-Type": "application/json;charset=utf-8",
       },
-      // внутри класса обращение к полям класса происходит через  this, то есть words нужно поменять на this.words
       body: JSON.stringify(word),
     })
       .then(response => {
@@ -73,6 +72,7 @@ class WordsStore {
         }
       })
       .then(() => {
+        //  Метод findIndex() возвращает индекс в массиве - это Number, то есть число. Чтобы извлечь элемент из массива по индексу - нужно воспользоваться квадратными скобками [], внутри них указать индекс.
         const index = this.words.findIndex(item => item.id === id);
         this.words[index] = editWord;
       })
@@ -81,6 +81,8 @@ class WordsStore {
         this.isLoading = false;
       });
   };
+
+  // удаляем слово
 
   deleteWord = props => {
     fetch(`/api/words/${props.id}/delete`, {
@@ -99,8 +101,10 @@ class WordsStore {
         }
       })
       .then(() => {
+        // splice () можно использовать, когда требуется обновить исходные данные
         // this.words.splice(props.id, 1);
         this.words = this.words.filter(item => item.id !== props.id);
+        // filter всегда возвращает новый массив с результатами и сохраняет исходный массив без изменений.
       })
       .catch(() => {
         this.error = true;

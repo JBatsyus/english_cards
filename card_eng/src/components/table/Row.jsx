@@ -8,8 +8,7 @@ import { observer, inject } from "mobx-react";
 export const Row = inject(["wordsStore"])(
   observer(props => {
     console.log(props);
-
-    // const updateWord = props.wordsStore.updateWord;
+    // измеение слова
     const updateWord = (id, editWord) => {
       props.wordsStore.updateWord(id, editWord);
     };
@@ -131,6 +130,7 @@ export const Row = inject(["wordsStore"])(
               className="btn_editMode"
               onClick={() => {
                 handleEditChange(false);
+                // Здесь нужно передавать данные не из пропсов (потому что они исходные), а из стейта (обновленные); два аргумента
                 updateWord(
                   props.id,
                   { ...data, id: props.id },
