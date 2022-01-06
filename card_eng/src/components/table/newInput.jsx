@@ -1,26 +1,31 @@
-import ButtonDelete from "../buttons/ButtonDelete";
-import ButtonEdit from "../buttons/ButtonEdit";
 import ButtonSave from "../buttons/ButtonSave";
-import { useForm } from "react-hook-form";
 import { useState } from "react";
+import { useForm } from "react-hook-form";
 import { observer, inject } from "mobx-react";
 
-export const Row = inject(["wordsStore"])(
-  observer(props => {
-    console.log(props);
-    // измеение слова
-    const updateWord = (id, editWord) => {
-      props.wordsStore.updateWord(id, editWord);
+const NewInput = inject(["wordsStore"])(
+  observer(({ wordsStore }) => {
+    // записала пустые поля в инпуте
+    const [data, setData] = useState({
+      english: "",
+      transcription: "",
+      russian: "",
+    });
+
+    // записываем добавленное слово в word стора
+    const addNewWord = () => {
+      if (!data) return;
+      wordsStore.addWord(data);
+      setData({
+        english: "",
+        transcription: "",
+        russian: "",
+      });
     };
 
-    // удаление слова
-    const deleteWord = props.wordsStore.deleteWord;
-    // const deleteWord = id => {
-    //   props.wordsStore.deleteWord(id);
-    // };
-
     // register — это функция, которую нужно подключить к каждому из полей ввода в качестве ссылки.
-    // Функция register будет принимать значение, которое пользователь ввел в каждое поле, и проверять его. register также передаст каждое значение в функцию, которая будет вызвана при отправке формы
+    // Функция register будет принимать значение, которое пользователь ввел в каждое поле, и проверять его.
+    //   register также передаст каждое значение в функцию, которая будет вызвана при отправке формы
     const {
       register,
       formState: { errors },
@@ -29,36 +34,31 @@ export const Row = inject(["wordsStore"])(
     });
 
     // состояние, отражающее изменения внутри инпутов
-    const [editMode, setEditMode] = useState(false);
-    const [data, setData] = useState({
-      english: props.english,
-      transcription: props.transcription,
-      russian: props.russian,
-    });
+    //   const [editMode, setEditMode] = useState(false);
 
     const notValidWords =
       data.english === "" || data.transcription === "" || data.russian === "";
 
-    const handleEditChange = isEdit => {
+    const handleEditChange = () => {
       if (!notValidWords) {
         console.log(data);
       }
-      setEditMode(isEdit);
     };
+
     const handleChange = event =>
       setData({ ...data, [event.target.name]: event.target.value });
 
     return (
-      <tr key={props.id}>
+      <tr>
         <td>
           <input
             className={`input_editMode ${
-              !data.english.length ? "inputError" : ""
+              !data.english.length ? "inputNull" : ""
             }`}
             type="text"
             name="english"
             value={data.english}
-            disabled={!editMode}
+            placeholder="English Word"
             {...register("english", {
               required: true,
               pattern: /^[A-Za-z]+$/i,
@@ -68,9 +68,9 @@ export const Row = inject(["wordsStore"])(
 
           {
             <div className="error">
-              {errors.english?.type === "required" &&
+              {errors.word?.type === "required" &&
                 "Заполните, пожалуйста, поле"}
-              {errors.english?.type === "pattern" &&
+              {errors.word?.type === "pattern" &&
                 "Только буквы латинского алфавита"}
             </div>
           }
@@ -78,12 +78,12 @@ export const Row = inject(["wordsStore"])(
         <td>
           <input
             className={`input_editMode ${
-              !data.transcription.length ? "inputError" : ""
+              !data.transcription.length ? "inputNull" : ""
             }`}
             type="text"
             name="transcription"
             value={data.transcription}
-            disabled={!editMode}
+            placeholder="Transcription"
             {...register("transcription", {
               required: true,
               onChange: handleChange,
@@ -97,12 +97,12 @@ export const Row = inject(["wordsStore"])(
         <td>
           <input
             className={`input_editMode ${
-              !data.russian.length ? "inputError" : ""
+              !data.russian.length ? "inputNull" : ""
             }`}
             type="text"
             name="russian"
             value={data.russian}
-            disabled={!editMode}
+            placeholder="Russian Word"
             {...register("russian", {
               required: true,
               pattern: /^[\u0400-\u04FF]+$/i,
@@ -117,28 +117,16 @@ export const Row = inject(["wordsStore"])(
           </div>
         </td>
         <td>
-          {!editMode ? (
-            <ButtonEdit
-              className="btn_editMode"
-              onClick={() => {
-                handleEditChange(true);
-                // updateWord не надо добавлять, тк кнопку только нажали, но слово еще не обновили;
-              }}
-            />
-          ) : (
-            <ButtonSave
-              className="btn_editMode"
-              onClick={() => {
-                handleEditChange(false);
-                // Здесь нужно передавать данные не из пропсов (потому что они исходные), а из стейта (обновленные); два аргумента
-                updateWord(props.id, { ...data, id: props.id });
-              }}
-              disabled={Object.keys(errors).length}
-            />
-          )}
-          <ButtonDelete onClick={() => deleteWord({ id: props.id })} />
+          <ButtonSave
+            className="btn_editMode"
+            onClick={() => {
+              handleEditChange(false);
+              addNewWord();
+            }}
+          />
         </td>
       </tr>
     );
   }),
 );
+export default NewInput;

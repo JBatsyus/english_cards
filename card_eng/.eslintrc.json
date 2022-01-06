@@ -10,13 +10,17 @@
       "plugin:react-hooks/recommended",
       "prettier"
     ],
+    "parser": "babel-eslint",
     "parserOptions": {
       "ecmaFeatures": {
         "jsx": true
+        
       },
       "ecmaVersion": 12,
       "sourceType": "module"
+      
     },
+    
     "plugins": ["react"],
     "ignorePatterns": ["webpack.config.js"],
     "rules": {
@@ -33,5 +37,6 @@
       "react/jsx-uses-vars": "error",
       "react/jsx-uses-react": "error",
       "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
+      
     }
   }

@@ -1,70 +1,46 @@
-# Getting Started with Create React App
+# Приложение "Learn english every day".
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+_Изучай английский каждый день_.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+<!-- здесь ссылка на гитхаб пэйдж -->
 
-### `npm start`
+Проект направлен на помощь в изучении слов английского языка.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Включает в себя:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+1. <ins>Страница "Home/Таблица слов" </ins>. <br>
+   1.1 _Добавление слов_ (отправка нового слова на сервер).<br>
+   1.2 _Таблица всех добавленных для изучения слов_.<br>
 
-### `npm test`
+2. <ins>Страница "Cards/Игровые карточки для изучения слов"</ins>.<br>
+   2.1 _Карусель со словами из таблицы_ .<br>
+   2.2 _Счетчик просмотра перевода слова_ (запускается при просмотре перевода, слово считается выученным).<br>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Так же добавлен лоадер (ожидание загрузки с сервера) и страница 404.
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![GitHub commit activity](https://img.shields.io/github/commit-activity/y/JBatsyus/english_cards?color=%23ffcc00) ![GitHub top language](https://img.shields.io/github/languages/top/JBatsyus/english_cards?color=%23ffcc00) ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/JBatsyus/english_cards?color=%23ffcc00) ![GitHub closed pull requests](https://img.shields.io/github/issues-pr-closed/JBatsyus/english_cards) ![GitHub last commit](https://img.shields.io/github/last-commit/JBatsyus/english_cards?color=%23ffcc00) ![GitHub language count](https://img.shields.io/github/languages/count/JBatsyus/english_cards?color=%23ffcc00)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![gif](https://github.com/JBatsyus/english_cards/blob/main/card_eng/src/assets/images/readme.gif)
 
-### `npm run eject`
+#### Используемые технологии:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- React
+- React Hooks
+- SASS
+- API
+- MobX
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#### Запуск приложения:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```
+npm install
+npm start
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Откройте [http://localhost:3000](http://localhost:3000), чтобы просмотреть его в браузере.

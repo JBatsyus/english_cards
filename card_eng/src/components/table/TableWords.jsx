@@ -1,8 +1,9 @@
 import { Row } from "./Row";
-import { table_words } from "../table/tableDate";
+import { observer, inject } from "mobx-react";
 
-const TableWords = () => {
-  return table_words.map(cell => <Row key={cell.id} {...cell} />);
-};
-
+const TableWords = inject(["wordsStore"])(
+  observer(({ wordsStore }) => {
+    return wordsStore.words.map(cell => <Row key={cell.id} {...cell} />);
+  }),
+);
 export default TableWords;
